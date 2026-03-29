@@ -1,16 +1,14 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Hero() {
-  const ref = useRef<HTMLElement>(null);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 600], [0, 210]);
   const opacity = useTransform(scrollY, [0, 700], [1, 0]);
 
   return (
-    <section id="hero" data-sec="0" ref={ref}
+    <section id="hero" data-sec="0"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-bk">
 
       {/* Video background */}
@@ -69,7 +67,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex items-center justify-center gap-4 flex-wrap"
         >
           <a
