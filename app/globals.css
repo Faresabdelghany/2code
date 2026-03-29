@@ -1,26 +1,193 @@
+/* app/globals.css */
 @import "tailwindcss";
 
+@theme {
+  --color-bk: #0a0a09;
+  --color-dk: #111110;
+  --color-ds: #161514;
+  --color-wd: #1c1a17;
+  --color-cr: #f0ebe3;
+  --color-cd: #9e9789;
+  --color-tn: #baa87e;
+  --color-gd: #c4a96a;
+  --color-gold-glow: rgba(196, 169, 106, 0.06);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #baa87e #0a0a09;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+::selection {
+  background: #f0ebe3;
+  color: #0a0a09;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #c4a96a;
+  outline-offset: 3px;
+}
+
+/* Grain overlay */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  background-size: 256px;
+}
+
+/* Marquee animation */
+@keyframes marq {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Scroll pulse (hero indicator) */
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.1);
+  }
+}
+
+/* Shimmer for wireframe lines */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(240, 235, 227, 0.04) 25%,
+    rgba(240, 235, 227, 0.1) 50%,
+    rgba(240, 235, 227, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite;
+}
+
+/* WhatsApp float */
+@keyframes floatWa {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.wa-float {
+  animation: floatWa 3s ease-in-out infinite;
+}
+
+/* Scroll pulse utility */
+.scroll-pulse {
+  animation: scrollPulse 2.5s ease-in-out infinite;
+}
+
+/* Mockup 3D tilt */
+.mock-tilt {
+  transition: transform 0.6s var(--ease);
+}
+.mock-tilt-browser {
+  transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
+}
+.mock-tilt-dashboard {
+  transform: perspective(1200px) rotateY(-3deg) rotateX(2deg);
+}
+.group:hover .mock-tilt-browser,
+.group:hover .mock-tilt-dashboard {
+  transform: perspective(1200px) rotateY(-1deg) rotateX(0deg);
+}
+@media (max-width: 1100px) {
+  .mock-tilt-browser,
+  .mock-tilt-dashboard {
+    transform: none !important;
+  }
+}
+
+/* Scroll reveal */
+.rv {
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.rv.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rv-d1 { transition-delay: 0.1s; }
+.rv-d2 { transition-delay: 0.2s; }
+.rv-d3 { transition-delay: 0.3s; }
+.rv-d4 { transition-delay: 0.4s; }
+
+/* Statement responsive */
+@media (max-width: 1100px) {
+  [data-sec="1"],
+  [data-sec="2"],
+  [data-sec="3"] {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    padding: 5rem 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  [data-sec="1"],
+  [data-sec="2"],
+  [data-sec="3"] {
+    padding: 5rem 2rem !important;
+    gap: 3rem !important;
+  }
+}
+
+/* Stats responsive */
+.stats-grid {
+  padding: 5rem 6rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+@media (max-width: 768px) {
+  .stats-grid { padding: 3rem 2rem !important; grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr !important; }
 }
