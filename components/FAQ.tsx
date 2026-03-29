@@ -66,7 +66,7 @@ export default function FAQ() {
         {faqs.map((faq, i) => (
           <div
             key={i}
-            className={`rv rv-d${i}`}
+            className={`rv${i > 0 ? ` rv-d${i}` : ""}`}
             style={{ borderBottom: "1px solid rgba(240,235,227,.08)" }}
           >
             <button
