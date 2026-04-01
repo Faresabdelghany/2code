@@ -40,20 +40,34 @@ export default function Home() {
         dataSec={1}
         title={
           <>
-            We Design
+            Every Pixel
             <br />
-            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Pages That</em>
+            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Earns Its</em>
             <br />
-            Convert.
+            Place.
           </>
         }
-        body="Every pixel earns its place. We craft landing pages that don't just look stunning — they drive measurable results."
+        body="We craft landing pages that turn visitors into leads — built to convert, not just to impress."
         mockupType="browser"
       />
       <Divider />
 
       <Statement
         dataSec={2}
+        title={
+          <>
+            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Sell More.</em>
+            <br />
+            Effortlessly.
+          </>
+        }
+        body="We build online stores that do the selling for you — from product pages to checkout, optimized for every click."
+        mockupType="cart"
+      />
+      <Divider />
+
+      <Statement
+        dataSec={3}
         title={
           <>
             Custom Software.
@@ -69,7 +83,7 @@ export default function Home() {
       <Divider />
 
       <Statement
-        dataSec={3}
+        dataSec={4}
         title={
           <>
             <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Mobile-First.</em>

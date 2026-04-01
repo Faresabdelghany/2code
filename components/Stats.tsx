@@ -8,12 +8,13 @@ interface Stat {
   suffix: string;
   label: string;
   decimal?: boolean;
+  note?: string;
 }
 
 const stats: Stat[] = [
   { target: 50, suffix: "+", label: "Projects Delivered" },
-  { target: 3, suffix: "x", label: "Avg. Conversion Lift", decimal: true },
-  { target: 98, suffix: "%", label: "Client Satisfaction" },
+  { target: 3, suffix: "x", label: "Avg. Conversion Lift", decimal: true, note: "across landing page projects" },
+  { target: 98, suffix: "%", label: "Client Satisfaction", note: "based on post-launch surveys" },
   { target: 12, suffix: "+", label: "Industries Served" },
 ];
 
@@ -88,13 +89,26 @@ function StatItem({ stat, delay }: { stat: Stat; delay: number }) {
       >
         {stat.label}
       </div>
+      {stat.note && (
+        <div
+          style={{
+            fontSize: "0.58rem",
+            letterSpacing: "0.1em",
+            color: "var(--color-cd)",
+            opacity: 0.45,
+            marginTop: "0.35rem",
+          }}
+        >
+          {stat.note}
+        </div>
+      )}
     </div>
   );
 }
 
 export default function Stats() {
   return (
-    <div className="stats-grid">
+    <div className="stats-grid" data-sec="7">
       {stats.map((stat, i) => (
         <StatItem key={stat.label} stat={stat} delay={i} />
       ))}

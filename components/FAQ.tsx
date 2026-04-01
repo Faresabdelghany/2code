@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: "What's your pricing structure?",
-    a: "We work on a project basis with transparent pricing. After our initial consultation, you'll receive a detailed proposal with fixed costs for each phase. No hidden fees.",
+    a: "We work on a project basis with transparent pricing. After our initial consultation, you'll receive a detailed proposal with fixed costs for each phase. No hidden fees. Not sure if we fit your budget? Reach out — we'll tell you straight.",
   },
   {
     q: "Do you offer ongoing support after launch?",
@@ -35,8 +35,8 @@ export default function FAQ() {
   }
 
   return (
-    <section style={{ padding: "10rem 6rem" }}>
-      <div style={{ marginBottom: "5rem" }}>
+    <section id="faq" data-sec="9" style={{ padding: "10rem 6rem" }}>
+      <div style={{ marginBottom: "5rem", textAlign: "center" }}>
         <p
           className="rv"
           style={{
@@ -62,7 +62,7 @@ export default function FAQ() {
         </h2>
       </div>
 
-      <div style={{ maxWidth: 800 }}>
+      <div style={{ maxWidth: 800, margin: "0 auto" }}>
         {faqs.map((faq, i) => (
           <div
             key={i}

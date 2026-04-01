@@ -6,14 +6,14 @@ const services = [
     num: "01",
     name: "Landing Pages<br />&amp; Web Design",
     description:
-      "High-conversion landing pages and marketing sites designed to capture attention and drive action. Every element is tested, every interaction is intentional.",
+      "Landing pages and marketing sites that turn visitors into customers. Every element tested, every interaction intentional.",
     tags: ["Conversion Optimization", "Responsive Design", "A/B Testing"],
   },
   {
     num: "02",
     name: "Custom Software<br />Development",
     description:
-      "Bespoke software solutions built to solve the problems templates can't. From internal tools to customer-facing platforms — engineered for scale.",
+      "Custom software built to solve the problems templates can't. From internal tools to customer-facing platforms — engineered for scale.",
     tags: ["Full-Stack", "Cloud Native", "API Design"],
   },
   {
@@ -29,7 +29,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      data-sec="4"
+      data-sec="5"
       style={{ padding: "10rem 6rem" }}
     >
       <div style={{ marginBottom: "5rem" }}>
@@ -54,8 +54,8 @@ export default function Services() {
             lineHeight: 1.1,
           }}
         >
-          Craft That{" "}
-          <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Converts</em>
+          Work That{" "}
+          <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Works</em>
         </h2>
       </div>
 
@@ -74,10 +74,10 @@ export default function Services() {
       <style>{`
         @media (max-width: 1100px) {
           #services { padding: 5rem 2rem !important; }
-          #services > div:last-child { grid-template-columns: 1fr !important; }
+          #services > div:last-of-type { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 768px) {
-          #services { padding: 5rem 2rem !important; }
+          #services { padding: 4rem 1.5rem !important; }
         }
       `}</style>
     </section>

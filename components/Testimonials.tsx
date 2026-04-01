@@ -48,6 +48,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
+      data-sec="8"
       style={{ padding: "10rem 6rem", position: "relative", overflow: "hidden" }}
     >
       {/* Radial bg glow */}

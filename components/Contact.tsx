@@ -39,6 +39,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
+      data-sec="10"
       style={{ padding: "10rem 6rem", position: "relative", overflow: "hidden" }}
     >
       {/* Bg glow */}
@@ -92,10 +93,9 @@ export default function Contact() {
               marginBottom: "1.5rem",
             }}
           >
-            Build Something
+            Got a Project?
             <br />
-            That{" "}
-            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Lasts.</em>
+            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Let&apos;s Talk.</em>
           </h2>
           <p
             className="rv rv-d2"
@@ -124,8 +124,9 @@ export default function Contact() {
               style={{ display: "flex", flexDirection: "column", gap: "1.8rem", paddingTop: "1rem" }}
             >
               <div>
-                <label style={labelStyle}>Name</label>
+                <label htmlFor="contact-name" style={labelStyle}>Name</label>
                 <input
+                  id="contact-name"
                   type="text"
                   placeholder="Your full name"
                   value={form.name}
@@ -136,8 +137,9 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label style={labelStyle}>Email</label>
+                <label htmlFor="contact-email" style={labelStyle}>Email</label>
                 <input
+                  id="contact-email"
                   type="email"
                   placeholder="you@company.com"
                   value={form.email}
@@ -148,8 +150,9 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label style={labelStyle}>Project Type</label>
+                <label htmlFor="contact-project" style={labelStyle}>Project Type</label>
                 <input
+                  id="contact-project"
                   type="text"
                   placeholder="Landing page, app, software…"
                   value={form.projectType}
@@ -160,8 +163,9 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label style={labelStyle}>Tell Us More</label>
+                <label htmlFor="contact-message" style={labelStyle}>Tell Us More</label>
                 <textarea
+                  id="contact-message"
                   rows={4}
                   placeholder="Describe your project…"
                   value={form.message}
@@ -202,7 +206,7 @@ export default function Contact() {
                   el.style.color = "var(--color-cr)";
                 }}
               >
-                Send Message
+                Send My Brief
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

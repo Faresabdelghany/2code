@@ -13,7 +13,7 @@ const steps = [
   {
     num: "03",
     title: "Develop",
-    desc: "Clean, scalable code with obsessive attention to performance. Every interaction is buttery smooth, every load is instant.",
+    desc: "Clean, scalable code built for performance. Every interaction is smooth, every load is fast.",
   },
   {
     num: "04",
@@ -24,7 +24,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" style={{ padding: "10rem 6rem", background: "var(--color-dk)" }}>
+    <section id="process" data-sec="6" style={{ padding: "10rem 6rem", background: "var(--color-dk)" }}>
       <div style={{ textAlign: "center", marginBottom: "6rem" }}>
         <p
           className="rv"
