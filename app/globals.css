@@ -132,13 +132,18 @@ textarea:focus-visible {
 .mock-tilt-dashboard {
   transform: perspective(1200px) rotateY(-3deg) rotateX(2deg);
 }
+.mock-tilt-cart {
+  transform: perspective(1200px) rotateY(-3deg) rotateX(2deg);
+}
 .group:hover .mock-tilt-browser,
-.group:hover .mock-tilt-dashboard {
+.group:hover .mock-tilt-dashboard,
+.group:hover .mock-tilt-cart {
   transform: perspective(1200px) rotateY(-1deg) rotateX(0deg);
 }
 @media (max-width: 1100px) {
   .mock-tilt-browser,
-  .mock-tilt-dashboard {
+  .mock-tilt-dashboard,
+  .mock-tilt-cart {
     transform: none !important;
   }
 }
@@ -176,6 +181,11 @@ textarea:focus-visible {
     padding: 5rem 2rem !important;
     gap: 3rem !important;
   }
+}
+
+/* Service card responsive */
+@media (max-width: 768px) {
+  .svc-card { padding: 2.5rem 1.8rem !important; }
 }
 
 /* Stats responsive */
