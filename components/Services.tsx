@@ -11,13 +11,20 @@ const services = [
   },
   {
     num: "02",
+    name: "E-Commerce<br />Solutions",
+    description:
+      "Online stores built to convert — from product catalogs to checkout flows, every interaction designed to drive revenue.",
+    tags: ["E-Commerce Platforms", "Payment Gateways", "Conversion"],
+  },
+  {
+    num: "03",
     name: "Custom Software<br />Development",
     description:
       "Custom software built to solve the problems templates can't. From internal tools to customer-facing platforms — engineered for scale.",
     tags: ["Full-Stack", "Cloud Native", "API Design"],
   },
   {
-    num: "03",
+    num: "04",
     name: "Mobile App<br />Development",
     description:
       "Native and cross-platform mobile applications that users actually want on their home screen. Smooth, fast, and beautifully crafted.",
@@ -62,7 +69,7 @@ export default function Services() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: "repeat(4, 1fr)",
           gap: 2,
         }}
       >
