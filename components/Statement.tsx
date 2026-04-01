@@ -3,11 +3,12 @@ import { ReactNode } from "react";
 import BrowserMockup from "./BrowserMockup";
 import DashboardMockup from "./DashboardMockup";
 import PhoneMockup from "./PhoneMockup";
+import CartMockup from "./CartMockup";
 
 interface StatementProps {
   title: ReactNode;
   body: string;
-  mockupType: "browser" | "dashboard" | "phones";
+  mockupType: "browser" | "dashboard" | "phones" | "cart";
   dataSec: number;
 }
 
@@ -15,6 +16,7 @@ const mockupMap = {
   browser: BrowserMockup,
   dashboard: DashboardMockup,
   phones: PhoneMockup,
+  cart: CartMockup,
 };
 
 export default function Statement({ title, body, mockupType, dataSec }: StatementProps) {
