@@ -211,6 +211,17 @@ export default function Contact() {
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
+              <p
+                style={{
+                  fontSize: "0.72rem",
+                  color: "var(--color-cd)",
+                  fontWeight: 300,
+                  marginTop: "1rem",
+                  opacity: 0.7,
+                }}
+              >
+                No commitment required. We&apos;ll respond within 24 hours with a free consultation.
+              </p>
             </motion.div>
           ) : (
             <motion.div

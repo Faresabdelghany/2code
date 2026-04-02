@@ -48,6 +48,7 @@ export default function Home() {
           </>
         }
         body="We craft landing pages that turn visitors into leads — built to convert, not just to impress."
+        proof="3x average conversion lift across projects"
         mockupType="browser"
       />
       <Divider />
@@ -62,6 +63,7 @@ export default function Home() {
           </>
         }
         body="We build online stores that do the selling for you — from product pages to checkout, optimized for every click."
+        proof="40% sales increase for Harvest & Co after launch"
         mockupType="cart"
       />
       <Divider />
@@ -77,7 +79,8 @@ export default function Home() {
             Compromise.</em>
           </>
         }
-        body="Engineered from the ground up. Scalable, secure, and shaped precisely to your business logic."
+        body="Built around your business logic — no templates, no workarounds. Scalable, secure, and precisely shaped to how you operate."
+        proof="98% client satisfaction on custom builds"
         mockupType="dashboard"
       />
       <Divider />
@@ -92,8 +95,52 @@ export default function Home() {
           </>
         }
         body="Your users live on their phones. We build native and cross-platform apps that feel effortless from the first tap."
+        proof="iOS, Android & cross-platform — 12+ industries served"
         mockupType="phones"
       />
+
+      {/* Mid-page CTA */}
+      <div
+        className="rv"
+        style={{
+          padding: "6rem 2rem",
+          textAlign: "center",
+          background: "linear-gradient(to bottom, transparent, rgba(186,168,126,.03), transparent)",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "var(--font-serif-alt)",
+            fontSize: "clamp(1rem, 1.5vw, 1.2rem)",
+            color: "var(--color-cd)",
+            fontWeight: 300,
+            marginBottom: "2rem",
+          }}
+        >
+          Ready to build something that actually converts?
+        </p>
+        <a
+          href="#contact"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.8rem",
+            fontSize: "0.7rem",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            fontWeight: 400,
+            padding: "1.1rem 3rem",
+            background: "var(--color-cr)",
+            color: "var(--color-bk)",
+            transition: "background 0.4s ease",
+          }}
+        >
+          Get a Free Consultation
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
 
       <Marquee />
       <Services />

@@ -1,6 +1,8 @@
 "use client";
 
 // components/Footer.tsx
+import Logo from "./Logo";
+
 export default function Footer() {
   return (
     <footer style={{ padding: "5rem 6rem 2.5rem", borderTop: "1px solid rgba(240,235,227,.08)" }}>
@@ -14,19 +16,11 @@ export default function Footer() {
       >
         {/* Brand */}
         <div>
-          <div
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontWeight: 900,
-              fontStyle: "italic",
-              fontSize: "2rem",
-              marginBottom: "1rem",
-            }}
-          >
-            FORMA
+          <div style={{ marginBottom: "1rem" }}>
+            <Logo height="3rem" />
           </div>
           <p style={{ fontSize: "0.88rem", color: "var(--color-cd)", lineHeight: 1.7, maxWidth: 280 }}>
-            Digital craft agency specializing in landing pages, custom software, and mobile applications.
+            We build high-converting landing pages, e-commerce stores, custom software, and mobile applications.
           </p>
         </div>
 
@@ -35,7 +29,7 @@ export default function Footer() {
           <h4 style={{ fontSize: "0.65rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--color-cd)", marginBottom: "1.5rem" }}>
             Services
           </h4>
-          {["Landing Pages", "Custom Software", "Mobile Apps", "UI/UX Design"].map((item) => (
+          {["Landing Pages", "E-Commerce", "Custom Software", "Mobile Apps", "UI/UX Design"].map((item) => (
             <a
               key={item}
               href="#services"
@@ -77,8 +71,8 @@ export default function Footer() {
             Get in Touch
           </h4>
           {[
-            { label: "hello@forma.agency", href: "mailto:hello@forma.agency" },
-            { label: "+20 123 456 7890", href: "#" },
+            { label: "hello@2code.agency", href: "mailto:hello@2code.agency" },
+            { label: "+20 123 456 7890", href: "tel:+201234567890" },
             { label: "Giza, Egypt", href: "#" },
           ].map((item) => (
             <a
@@ -105,7 +99,7 @@ export default function Footer() {
         }}
       >
         <p style={{ fontSize: "0.7rem", color: "var(--color-cd)" }}>
-          &copy; 2026 FORMA. All rights reserved.
+          &copy; 2026 2Code. All rights reserved.
         </p>
         <div style={{ display: "flex", gap: "1.8rem" }}>
           {["LinkedIn", "Dribbble", "Instagram", "X"].map((social) => (
@@ -135,7 +129,7 @@ export default function Footer() {
         @media (max-width: 768px) {
           footer { padding: 3rem 2rem 2rem !important; }
           footer > div:first-child { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
-          footer > div:last-child { flex-direction: column !important; gap: 1.5rem !important; text-align: center !important; }
+          footer > div:last-of-type { flex-direction: column !important; gap: 1.5rem !important; text-align: center !important; }
         }
       `}</style>
     </footer>

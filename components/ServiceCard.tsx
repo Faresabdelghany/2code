@@ -23,6 +23,7 @@ export default function ServiceCard({ num, name, description, tags, delay = 0 }:
       }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       role="article"
+      className="svc-card"
       style={{
         padding: "3.5rem 2.8rem",
         position: "relative",

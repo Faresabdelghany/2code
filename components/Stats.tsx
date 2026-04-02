@@ -13,7 +13,7 @@ interface Stat {
 
 const stats: Stat[] = [
   { target: 50, suffix: "+", label: "Projects Delivered" },
-  { target: 3, suffix: "x", label: "Avg. Conversion Lift", decimal: true, note: "across landing page projects" },
+  { target: 3, suffix: "x", label: "Avg. Conversion Lift", decimal: true, note: "across landing page & e-commerce projects" },
   { target: 98, suffix: "%", label: "Client Satisfaction", note: "based on post-launch surveys" },
   { target: 12, suffix: "+", label: "Industries Served" },
 ];

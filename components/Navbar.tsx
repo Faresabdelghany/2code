@@ -3,10 +3,13 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "./Logo";
 
 const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -58,15 +61,9 @@ export default function Navbar() {
         <a
           href="#"
           onClick={(e) => handleAnchorClick(e, "#hero")}
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontWeight: 900,
-            fontStyle: "italic",
-            fontSize: "1.35rem",
-            letterSpacing: "0.06em",
-          }}
+          style={{ display: "flex", alignItems: "center" }}
         >
-          FORMA
+          <Logo height="3rem" />
         </a>
 
         {/* Desktop nav */}
@@ -130,7 +127,7 @@ export default function Navbar() {
             el.style.borderColor = "var(--color-cd)";
           }}
         >
-          Start a Project
+          Get a Free Consultation
         </a>
 
         {/* Hamburger */}
@@ -206,7 +203,7 @@ export default function Navbar() {
               gap: "2.5rem",
             }}
           >
-            {[...navLinks, { label: "Testimonials", href: "#testimonials" }].map((link, i) => (
+            {navLinks.map((link, i) => (
               <motion.a
                 key={link.label}
                 href={link.href}

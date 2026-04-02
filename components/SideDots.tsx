@@ -44,11 +44,11 @@ export default function SideDots() {
         gap: "1rem",
       }}
     >
-      {[0, 1, 2, 3, 4].map((i) => (
+      {["Hero", "Web Design", "Software", "Mobile", "Services", "Process", "Stats", "Testimonials", "FAQ", "Contact"].map((label, i) => (
         <button
           key={i}
           onClick={() => scrollToSection(i)}
-          aria-label={`Navigate to section ${i + 1}`}
+          aria-label={label}
           style={{
             width: 6,
             height: 6,

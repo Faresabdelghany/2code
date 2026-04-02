@@ -19,7 +19,7 @@ export default function BrowserMockup() {
           className="ml-3 h-5 flex-1 max-w-[220px] rounded flex items-center px-2.5"
           style={{ background: "rgba(240,235,227,.04)", fontSize: "0.55rem", color: "var(--color-cd)" }}
         >
-          forma.agency/project
+          2code.agency/project
         </div>
       </div>
       {/* Body */}

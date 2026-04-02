@@ -8,6 +8,7 @@ import CartMockup from "./CartMockup";
 interface StatementProps {
   title: ReactNode;
   body: string;
+  proof?: string;
   mockupType: "browser" | "dashboard" | "phones" | "cart";
   dataSec: number;
 }
@@ -19,7 +20,7 @@ const mockupMap = {
   cart: CartMockup,
 };
 
-export default function Statement({ title, body, mockupType, dataSec }: StatementProps) {
+export default function Statement({ title, body, proof, mockupType, dataSec }: StatementProps) {
   const MockupComponent = mockupMap[mockupType];
 
   return (
@@ -64,6 +65,21 @@ export default function Statement({ title, body, mockupType, dataSec }: Statemen
         >
           {body}
         </p>
+        {proof && (
+          <p
+            className="rv rv-d3"
+            style={{
+              fontSize: "0.68rem",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "var(--color-tn)",
+              marginTop: "1.5rem",
+              fontWeight: 500,
+            }}
+          >
+            {proof}
+          </p>
+        )}
       </div>
 
       {/* Mockup visual */}

@@ -6,14 +6,19 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const testimonials = [
   {
-    text: "FORMA didn't just build our platform — they redefined what we thought was possible. The attention to craft is unmatched.",
+    text: "2Code didn't just build our platform — they redefined what we thought was possible. The attention to craft is unmatched.",
     author: "Sarah Mitchell",
     role: "CEO, FinanceFlow",
   },
   {
-    text: "Working with FORMA felt like having an in-house team that actually cared. Our conversion rate tripled in the first quarter after launch.",
+    text: "Working with 2Code felt like having an in-house team that actually cared. Our conversion rate tripled in the first quarter after launch.",
     author: "Ahmed Karim",
     role: "Founder, Meridian Group",
+  },
+  {
+    text: "Our online store went from a clunky checkout to a seamless experience. Sales jumped 40% in the first month after 2Code rebuilt it.",
+    author: "Omar Fayed",
+    role: "Founder, Harvest & Co",
   },
   {
     text: "They took a complex vision and turned it into the most intuitive app our users have ever experienced. Truly world-class work.",

@@ -11,19 +11,23 @@ const faqs = [
   },
   {
     q: "What's your pricing structure?",
-    a: "We work on a project basis with transparent pricing. After our initial consultation, you'll receive a detailed proposal with fixed costs for each phase. No hidden fees. Not sure if we fit your budget? Reach out — we'll tell you straight.",
+    a: "We work on a project basis with transparent pricing. After a free consultation, you'll receive a detailed proposal with fixed costs for each phase — no hidden fees, no surprises. Not sure if we fit your budget? Reach out and we'll tell you straight.",
   },
   {
     q: "Do you offer ongoing support after launch?",
-    a: "Absolutely. We offer flexible maintenance and support packages. Whether you need bug fixes, feature updates, or performance monitoring — we're here for the long run.",
+    a: "Absolutely. Bug fixes within 24 hours, monthly feature updates, and uptime monitoring — so you can focus on running your business while we keep everything running smoothly.",
+  },
+  {
+    q: "What e-commerce platforms do you work with?",
+    a: "We work with Shopify, WooCommerce, and custom-built storefronts. Whether you need a turnkey solution or a fully custom checkout experience, we'll recommend the right platform for your business and budget.",
   },
   {
     q: "What technologies do you work with?",
-    a: "We're technology-agnostic. Our stack commonly includes React, Next.js, .NET, Flutter, React Native, Node.js, and cloud platforms like AWS and Azure.",
+    a: "We pick the best tool for your project — not the one we're most comfortable with. That means faster builds and better results. Our stack commonly includes React, Next.js, .NET, Flutter, React Native, Node.js, and cloud platforms like AWS and Azure.",
   },
   {
     q: "Can you work with our existing team?",
-    a: "Yes. We regularly integrate with in-house teams. Whether it's a handoff, co-development, or augmenting your workflow — we fit seamlessly into your process.",
+    a: "Yes. We plug into your Slack, join your standups, and ship alongside your devs — no friction, no ramp-up time. Whether it's a handoff, co-development, or augmenting your workflow, we fit right in.",
   },
 ];
 

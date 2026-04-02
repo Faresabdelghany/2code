@@ -30,7 +30,7 @@ export default function Trust() {
           opacity: 0.5,
         }}
       >
-        Trusted by companies across the region
+        Trusted by 50+ companies across Egypt, UAE &amp; Saudi Arabia
       </p>
       <div
         style={{
@@ -49,7 +49,7 @@ export default function Trust() {
               fontWeight: 700,
               fontStyle: "italic",
               fontSize: "clamp(1rem, 1.5vw, 1.3rem)",
-              opacity: 0.2,
+              opacity: 0.35,
               transition: "opacity 0.4s ease",
               cursor: "default",
             }}
