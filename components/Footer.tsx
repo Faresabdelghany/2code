@@ -72,7 +72,7 @@ export default function Footer() {
           </h4>
           {[
             { label: "hello@2code.agency", href: "mailto:hello@2code.agency" },
-            { label: "+20 123 456 7890", href: "tel:+201234567890" },
+            { label: "+20 100 790 5654", href: "https://wa.me/201007905654" },
             { label: "Giza, Egypt", href: "#" },
           ].map((item) => (
             <a

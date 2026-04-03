@@ -82,7 +82,7 @@ export default function RootLayout({
                 contactPoint: {
                   "@type": "ContactPoint",
                   email: "hello@2code.agency",
-                  telephone: "+201234567890",
+                  telephone: "+201007905654",
                   contactType: "sales",
                 },
                 sameAs: [],
@@ -93,7 +93,7 @@ export default function RootLayout({
                 name: "2Code",
                 url: "https://2code.agency",
                 image: "https://2code.agency/logo.png",
-                telephone: "+201234567890",
+                telephone: "+201007905654",
                 email: "hello@2code.agency",
                 address: {
                   "@type": "PostalAddress",
