@@ -29,6 +29,22 @@ const faqs = [
     q: "Can you work with our existing team?",
     a: "Yes. We plug into your Slack, join your standups, and ship alongside your devs — no friction, no ramp-up time. Whether it's a handoff, co-development, or augmenting your workflow, we fit right in.",
   },
+  {
+    q: "How much does a landing page cost in Egypt?",
+    a: "Landing page pricing depends on complexity, content depth, and interactivity. A single high-converting landing page typically ranges from $1,500 to $5,000. We provide a detailed fixed-cost proposal after a free consultation — no hidden fees, no surprises.",
+  },
+  {
+    q: "Do you offer UI/UX design services?",
+    a: "Yes — UI/UX design is core to everything we build. We handle wireframes, user research, prototyping, and high-fidelity interface design. Whether it's a standalone design engagement or part of a full development project, we design interfaces that users love.",
+  },
+  {
+    q: "What industries do you serve?",
+    a: "We've delivered projects across fintech, e-commerce, real estate, healthcare, education, logistics, and SaaS — serving businesses in Egypt and across the Middle East. Our process starts with deep discovery to understand your specific market and users.",
+  },
+  {
+    q: "How much does it cost to build a mobile app in Egypt?",
+    a: "Mobile app costs depend on complexity, platform (iOS, Android, or both), and features. A cross-platform app built with Flutter or React Native typically ranges from $8,000 to $40,000. We'll give you a clear breakdown during our free consultation.",
+  },
 ];
 
 export default function FAQ() {

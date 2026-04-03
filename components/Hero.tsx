@@ -164,7 +164,7 @@ export default function Hero() {
             marginBottom: "2rem",
           }}
         >
-          50+ Projects &nbsp;·&nbsp; 3x Avg. Conversion Lift
+          50+ Projects Delivered &nbsp;·&nbsp; Up to 3x Conversion Lift
         </motion.p>
 
         {/* Headline */}
@@ -227,8 +227,7 @@ export default function Hero() {
             marginBottom: "3rem",
           }}
         >
-          Landing pages, e-commerce, custom software, and mobile apps —{" "}
-          built to perform, not just impress.
+          A web development agency in Egypt building landing pages, e-commerce stores, custom software &amp; mobile apps — built to perform, not just impress.
         </motion.p>
 
         {/* CTAs */}

@@ -32,25 +32,25 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "2Code — Landing Pages, E-Commerce & Custom Software | Egypt",
+  title: "2Code — Web Development Agency in Egypt | Landing Pages, E-Commerce & Custom Software",
   description:
-    "2Code builds landing pages, e-commerce stores, custom software & mobile apps that convert. 50+ projects delivered across the Middle East. Get a free consultation.",
+    "2Code is a web development agency in Egypt building landing pages, e-commerce stores, custom software & mobile apps that convert. 50+ projects delivered across the Middle East. Get a free consultation today.",
   alternates: {
     canonical: "https://2code.agency",
   },
   openGraph: {
-    title: "2Code — We Build Digital Products That Convert",
+    title: "2Code — Web Development Agency in Egypt | Digital Products That Convert",
     description:
-      "Landing pages, e-commerce, custom software & mobile apps — built to perform, not just impress. 50+ projects, 3x avg. conversion lift.",
+      "A web development agency in Egypt building landing pages, e-commerce stores, custom software & mobile apps that convert. 50+ projects delivered across the Middle East.",
     type: "website",
     url: "https://2code.agency",
     siteName: "2Code",
   },
   twitter: {
     card: "summary_large_image",
-    title: "2Code — We Build Digital Products That Convert",
+    title: "2Code — Web Development Agency in Egypt | Digital Products That Convert",
     description:
-      "Landing pages, e-commerce, custom software & mobile apps — built to perform. 50+ projects across the Middle East.",
+      "A web development agency in Egypt building landing pages, e-commerce stores, custom software & mobile apps that convert. 50+ projects across the Middle East.",
   },
   other: {
     "geo.region": "EG",
@@ -101,8 +101,59 @@ export default function RootLayout({
                   addressCountry: "EG",
                 },
                 description:
-                  "2Code builds landing pages, e-commerce stores, custom software and mobile apps that convert.",
+                  "2Code is a web development agency in Egypt building high-converting landing pages, e-commerce stores, custom software and mobile apps for businesses across the Middle East.",
                 priceRange: "$$",
+                areaServed: [
+                  { "@type": "Country", name: "Egypt" },
+                  { "@type": "GeoCircle", name: "Middle East" },
+                ],
+                knowsAbout: [
+                  "Landing Page Design",
+                  "E-Commerce Development",
+                  "Custom Software Development",
+                  "Mobile App Development",
+                  "UI/UX Design",
+                  "React",
+                  "Next.js",
+                  ".NET",
+                  "Flutter",
+                ],
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                serviceType: "Landing Page Design",
+                provider: { "@type": "Organization", name: "2Code" },
+                areaServed: { "@type": "Country", name: "Egypt" },
+                description:
+                  "High-converting landing pages and marketing sites built with React and Next.js. Every element tested, every interaction optimized for conversion.",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                serviceType: "E-Commerce Development",
+                provider: { "@type": "Organization", name: "2Code" },
+                areaServed: { "@type": "Country", name: "Egypt" },
+                description:
+                  "E-commerce stores built on Shopify, WooCommerce, or fully custom platforms — from product catalogs to checkout flows, optimized for revenue.",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                serviceType: "Custom Software Development",
+                provider: { "@type": "Organization", name: "2Code" },
+                areaServed: { "@type": "Country", name: "Egypt" },
+                description:
+                  "Custom software built around your business logic using .NET, Node.js, and cloud platforms like AWS and Azure. Scalable, secure, and precisely shaped to how you operate.",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                serviceType: "Mobile App Development",
+                provider: { "@type": "Organization", name: "2Code" },
+                areaServed: { "@type": "Country", name: "Egypt" },
+                description:
+                  "Native and cross-platform mobile apps built with Flutter and React Native for iOS and Android. Smooth, fast, and beautifully crafted.",
               },
               {
                 "@context": "https://schema.org",
@@ -154,6 +205,38 @@ export default function RootLayout({
                     acceptedAnswer: {
                       "@type": "Answer",
                       text: "Yes. We regularly integrate with in-house teams for handoffs, co-development, or workflow augmentation.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "How much does a landing page cost in Egypt?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "Landing page pricing varies based on complexity. A single high-converting landing page typically ranges from $1,500 to $5,000. We provide a detailed fixed-cost proposal after a free consultation — no hidden fees.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "Do you offer UI/UX design services?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "Yes. UI/UX design is core to everything we build. We handle wireframes, prototypes, user research, and high-fidelity design — whether it's a standalone design engagement or part of a full development project.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "What industries do you serve?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "We've delivered projects across fintech, e-commerce, real estate, healthcare, education, logistics, SaaS, and more. Our process adapts to any industry — we start every project with deep discovery to understand your specific market.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "How much does it cost to build a mobile app in Egypt?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "Mobile app costs depend on complexity, platform (iOS, Android, or both), and features. A cross-platform app typically ranges from $8,000 to $40,000. We build with Flutter and React Native to deliver native-quality experiences at a competitive cost.",
                     },
                   },
                 ],

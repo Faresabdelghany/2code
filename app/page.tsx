@@ -34,21 +34,22 @@ export default function Home() {
     <>
       <ScrollReveal />
       <Navbar />
+      <main>
       <Hero />
 
       <Statement
         dataSec={1}
         title={
           <>
-            Every Pixel
+            Landing Pages
             <br />
-            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Earns Its</em>
+            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>That</em>
             <br />
-            Place.
+            Convert.
           </>
         }
-        body="We craft landing pages that turn visitors into leads — built to convert, not just to impress."
-        proof="3x average conversion lift across projects"
+        body="We design and build landing pages in Egypt that turn visitors into leads — every element tested, every interaction optimized for conversion."
+        proof="Up to 3x conversion lift across 15+ landing page projects"
         mockupType="browser"
       />
       <Divider />
@@ -57,13 +58,13 @@ export default function Home() {
         dataSec={2}
         title={
           <>
-            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Sell More.</em>
+            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>E-Commerce</em>
             <br />
-            Effortlessly.
+            That Sells.
           </>
         }
-        body="We build online stores that do the selling for you — from product pages to checkout, optimized for every click."
-        proof="40% sales increase for Harvest & Co after launch"
+        body="We build e-commerce stores on Shopify, WooCommerce, and custom platforms — from product catalogs to checkout flows, optimized for every click."
+        proof="40% sales increase for Harvest & Co within 3 months of launch"
         mockupType="cart"
       />
       <Divider />
@@ -72,15 +73,15 @@ export default function Home() {
         dataSec={3}
         title={
           <>
-            Custom Software.
+            Custom Software
             <br />
-            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Zero
+            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Development.</em>
             <br />
-            Compromise.</em>
+            Zero Compromise.
           </>
         }
-        body="Built around your business logic — no templates, no workarounds. Scalable, secure, and precisely shaped to how you operate."
-        proof="98% client satisfaction on custom builds"
+        body="Custom software built around your business logic using .NET, Node.js, and cloud platforms like AWS and Azure — no templates, no workarounds. Scalable, secure, and precisely shaped to how you operate."
+        proof="98% client satisfaction based on post-project surveys"
         mockupType="dashboard"
       />
       <Divider />
@@ -89,13 +90,13 @@ export default function Home() {
         dataSec={4}
         title={
           <>
-            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Mobile-First.</em>
+            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Mobile App</em>
             <br />
-            Always.
+            Development.
           </>
         }
-        body="Your users live on their phones. We build native and cross-platform apps that feel effortless from the first tap."
-        proof="iOS, Android & cross-platform — 12+ industries served"
+        body="We build native and cross-platform mobile apps with Flutter and React Native — smooth, fast, and designed to keep users coming back. iOS, Android, or both."
+        proof="Serving fintech, e-commerce, real estate, healthcare, education & more"
         mockupType="phones"
       />
 
@@ -150,6 +151,7 @@ export default function Home() {
       <Testimonials />
       <FAQ />
       <Contact />
+      </main>
       <Footer />
 
       <SideDots />

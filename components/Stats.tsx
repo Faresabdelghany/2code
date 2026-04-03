@@ -12,10 +12,10 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { target: 50, suffix: "+", label: "Projects Delivered" },
-  { target: 3, suffix: "x", label: "Avg. Conversion Lift", decimal: true, note: "across landing page & e-commerce projects" },
-  { target: 98, suffix: "%", label: "Client Satisfaction", note: "based on post-launch surveys" },
-  { target: 12, suffix: "+", label: "Industries Served" },
+  { target: 50, suffix: "+", label: "Projects Delivered", note: "since 2023 across Egypt & the Middle East" },
+  { target: 3, suffix: "x", label: "Avg. Conversion Lift", decimal: true, note: "across 15+ landing page & e-commerce projects" },
+  { target: 98, suffix: "%", label: "Client Satisfaction", note: "based on post-project client surveys" },
+  { target: 12, suffix: "+", label: "Industries Served", note: "fintech, e-commerce, healthcare & more" },
 ];
 
 function StatItem({ stat, delay }: { stat: Stat; delay: number }) {

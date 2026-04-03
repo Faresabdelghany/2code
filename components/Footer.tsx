@@ -20,7 +20,7 @@ export default function Footer() {
             <Logo height="3rem" />
           </div>
           <p style={{ fontSize: "0.88rem", color: "var(--color-cd)", lineHeight: 1.7, maxWidth: 280 }}>
-            We build high-converting landing pages, e-commerce stores, custom software, and mobile applications.
+            2Code is a web development agency in Giza, Egypt — building high-converting landing pages, e-commerce stores, custom software, and mobile apps for businesses across the Middle East.
           </p>
         </div>
 
@@ -49,8 +49,8 @@ export default function Footer() {
           </h4>
           {[
             { label: "About", href: "#hero" },
-            { label: "Careers", href: "#contact" },
-            { label: "Blog", href: "#" },
+            { label: "Process", href: "#process" },
+            { label: "FAQ", href: "#faq" },
             { label: "Contact", href: "#contact" },
           ].map((item) => (
             <a
