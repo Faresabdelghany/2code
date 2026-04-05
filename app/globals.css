@@ -15,17 +15,46 @@
 
 :root {
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --color-accent-red: #e05246;
+  --border-subtle: rgba(240, 235, 227, 0.06);
+  --border-muted: rgba(240, 235, 227, 0.08);
+  --border-default: rgba(240, 235, 227, 0.1);
+  --border-strong: rgba(240, 235, 227, 0.15);
+  --border-emphasis: rgba(240, 235, 227, 0.25);
 }
 
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #baa87e #0a0a09;
+  scrollbar-color: var(--color-tn) var(--color-bk);
 }
 
 ::selection {
-  background: #f0ebe3;
-  color: #0a0a09;
+  background: var(--color-cr);
+  color: var(--color-bk);
+}
+
+.skip-nav {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 10000;
+  padding: 1rem 2rem;
+  background: var(--color-cr);
+  color: var(--color-bk);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.skip-nav:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
 }
 
 img,
@@ -188,6 +217,7 @@ textarea:focus-visible {
   .svc-card { padding: 2.5rem 1.8rem !important; }
 }
 
+
 /* Stats responsive */
 .stats-grid {
   padding: 5rem 6rem;
@@ -200,4 +230,14 @@ textarea:focus-visible {
 }
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .rv { opacity: 1; transform: none; }
 }

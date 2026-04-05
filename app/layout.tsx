@@ -69,6 +69,9 @@ export default function RootLayout({
         className="grain bg-bk text-cr antialiased overflow-x-hidden"
         style={{ fontFamily: "var(--font-sans)", fontWeight: 300 }}
       >
+        <a href="#main-content" className="skip-nav">
+          Skip to main content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

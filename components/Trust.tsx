@@ -54,7 +54,7 @@ export default function Trust() {
               cursor: "default",
             }}
             onMouseEnter={(e) => ((e.target as HTMLElement).style.opacity = "0.5")}
-            onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = "0.2")}
+            onMouseLeave={(e) => ((e.target as HTMLElement).style.opacity = "0.35")}
           >
             {logo}
           </span>

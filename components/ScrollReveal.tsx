@@ -28,7 +28,17 @@ export default function ScrollReveal() {
 
     observeAll();
 
-    const mutationObserver = new MutationObserver(observeAll);
+    let rafPending = false;
+    const debouncedObserveAll = () => {
+      if (!rafPending) {
+        rafPending = true;
+        requestAnimationFrame(() => {
+          observeAll();
+          rafPending = false;
+        });
+      }
+    };
+    const mutationObserver = new MutationObserver(debouncedObserveAll);
     mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {

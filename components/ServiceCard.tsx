@@ -1,10 +1,11 @@
 "use client";
 
+import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 interface ServiceCardProps {
   num: string;
-  name: string;
+  name: ReactNode;
   description: string;
   tags: string[];
   delay?: number;
@@ -85,7 +86,7 @@ export default function ServiceCard({ num, name, description, tags, delay = 0 }:
           zIndex: 1,
         }}
       >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" strokeWidth={1.5}>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" strokeWidth={1.5} aria-hidden="true">
           <motion.path
             d="M7 17L17 7M17 7H7M17 7v10"
             variants={{
@@ -113,7 +114,6 @@ export default function ServiceCard({ num, name, description, tags, delay = 0 }:
 
       {/* Name */}
       <h3
-        dangerouslySetInnerHTML={{ __html: name }}
         style={{
           fontFamily: "var(--font-serif)",
           fontWeight: 700,
@@ -123,7 +123,9 @@ export default function ServiceCard({ num, name, description, tags, delay = 0 }:
           position: "relative",
           zIndex: 1,
         }}
-      />
+      >
+        {name}
+      </h3>
 
       {/* Description */}
       <p

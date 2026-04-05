@@ -4,28 +4,28 @@ import ServiceCard from "./ServiceCard";
 const services = [
   {
     num: "01",
-    name: "Landing Pages<br />&amp; Web Design",
+    name: <>Landing Pages<br />& Web Design</>,
     description:
       "High-converting landing pages and marketing sites built with React and Next.js. We handle everything from wireframes to A/B testing — every element optimized for conversion, responsive across all devices.",
     tags: ["Conversion Optimization", "Responsive Design", "A/B Testing", "React"],
   },
   {
     num: "02",
-    name: "E-Commerce<br />Solutions",
+    name: <>E-Commerce<br />Solutions</>,
     description:
       "E-commerce stores built on Shopify, WooCommerce, or fully custom platforms. From product catalogs to checkout flows and payment gateway integration — every interaction designed to drive revenue and reduce cart abandonment.",
     tags: ["Shopify", "WooCommerce", "Payment Gateways", "Conversion"],
   },
   {
     num: "03",
-    name: "Custom Software<br />Development",
+    name: <>Custom Software<br />Development</>,
     description:
       "Custom software built to solve the problems templates can't. From internal tools to customer-facing platforms — engineered with .NET, Node.js, and cloud infrastructure on AWS and Azure for scale and security.",
     tags: ["Full-Stack", "Cloud Native", ".NET", "Node.js"],
   },
   {
     num: "04",
-    name: "Mobile App<br />Development",
+    name: <>Mobile App<br />Development</>,
     description:
       "Native and cross-platform mobile apps built with Flutter and React Native for iOS and Android. Smooth performance, beautiful interfaces, and users who actually keep your app on their home screen.",
     tags: ["iOS & Android", "Flutter", "React Native", "Cross-Platform"],
@@ -81,6 +81,9 @@ export default function Services() {
       <style>{`
         @media (max-width: 1100px) {
           #services { padding: 5rem 2rem !important; }
+          #services > div:last-of-type { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 600px) {
           #services > div:last-of-type { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 768px) {

@@ -104,45 +104,57 @@ function PhoneTabs({ activeIndex = 0 }: { activeIndex?: number }) {
 
 export default function PhoneMockup() {
   return (
-    <div style={{ display: "flex", gap: 20, alignItems: "flex-end", justifyContent: "center" }}>
-      {/* Left secondary */}
-      <PhoneFrame style={{ opacity: 0.7, transform: "scale(0.9)" }} >
-        <PhoneScreen>
-          <PhoneHeader />
-          <PhoneCard label="Portfolio" value="$24,580" />
-          <PhoneListItem />
-          <PhoneListItem />
-          <PhoneTabs activeIndex={0} />
-        </PhoneScreen>
-      </PhoneFrame>
+    <>
+      <div className="phone-mockup-group" style={{ display: "flex", gap: 20, alignItems: "flex-end", justifyContent: "center" }}>
+        {/* Left secondary */}
+        <div className="phone-secondary">
+          <PhoneFrame style={{ opacity: 0.7, transform: "scale(0.9)" }} >
+            <PhoneScreen>
+              <PhoneHeader />
+              <PhoneCard label="Portfolio" value="$24,580" />
+              <PhoneListItem />
+              <PhoneListItem />
+              <PhoneTabs activeIndex={0} />
+            </PhoneScreen>
+          </PhoneFrame>
+        </div>
 
-      {/* Center primary */}
-      <PhoneFrame style={{ width: 200, zIndex: 2, transform: "translateY(-20px)" }}>
-        <PhoneScreen minHeight={380}>
-          <PhoneHeader />
-          <div style={{ fontSize: "0.5rem", color: "var(--color-cd)" }}>Good morning</div>
-          <div style={{ fontFamily: "var(--font-serif)", fontSize: "0.75rem", fontWeight: 700, margin: "2px 0 8px" }}>
-            Dashboard
-          </div>
-          <PhoneCard label="Total Balance" value="$148,320" />
-          <PhoneListItem />
-          <PhoneListItem />
-          <PhoneListItem />
-          <PhoneTabs activeIndex={0} />
-        </PhoneScreen>
-      </PhoneFrame>
+        {/* Center primary */}
+        <PhoneFrame style={{ width: 200, zIndex: 2, transform: "translateY(-20px)" }}>
+          <PhoneScreen minHeight={380}>
+            <PhoneHeader />
+            <div style={{ fontSize: "0.5rem", color: "var(--color-cd)" }}>Good morning</div>
+            <div style={{ fontFamily: "var(--font-serif)", fontSize: "0.75rem", fontWeight: 700, margin: "2px 0 8px" }}>
+              Dashboard
+            </div>
+            <PhoneCard label="Total Balance" value="$148,320" />
+            <PhoneListItem />
+            <PhoneListItem />
+            <PhoneListItem />
+            <PhoneTabs activeIndex={0} />
+          </PhoneScreen>
+        </PhoneFrame>
 
-      {/* Right secondary */}
-      <PhoneFrame
-        style={{ transform: "scale(0.85)", opacity: 0.7 }}
-      >
-        <PhoneScreen>
-          <PhoneHeader />
-          <PhoneCard label="Activity" value="127 Tasks" />
-          <PhoneListItem />
-          <PhoneTabs activeIndex={1} />
-        </PhoneScreen>
-      </PhoneFrame>
-    </div>
+        {/* Right secondary */}
+        <div className="phone-secondary">
+          <PhoneFrame
+            style={{ transform: "scale(0.85)", opacity: 0.7 }}
+          >
+            <PhoneScreen>
+              <PhoneHeader />
+              <PhoneCard label="Activity" value="127 Tasks" />
+              <PhoneListItem />
+              <PhoneTabs activeIndex={1} />
+            </PhoneScreen>
+          </PhoneFrame>
+        </div>
+      </div>
+      <style>{`
+        @media (max-width: 600px) {
+          .phone-secondary { display: none; }
+          .phone-mockup-group { gap: 0; }
+        }
+      `}</style>
+    </>
   );
 }

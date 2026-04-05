@@ -32,8 +32,8 @@ export default function BackToTop() {
             bottom: "2.5rem",
             right: "3.5rem",
             zIndex: 900,
-            width: 40,
-            height: 40,
+            width: 44,
+            height: 44,
             borderRadius: "50%",
             border: "1px solid rgba(240,235,227,.15)",
             background: "rgba(10,10,9,.7)",
@@ -46,7 +46,7 @@ export default function BackToTop() {
           }}
           whileHover={{ borderColor: "var(--color-gd)" }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-cd)" strokeWidth={1.5}>
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-cd)" strokeWidth={1.5}>
             <path d="M12 19V5M5 12l7-7 7 7" />
           </svg>
         </motion.button>

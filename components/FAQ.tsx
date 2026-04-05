@@ -90,7 +90,10 @@ export default function FAQ() {
             style={{ borderBottom: "1px solid rgba(240,235,227,.08)" }}
           >
             <button
+              id={`faq-btn-${i}`}
               onClick={() => toggle(i)}
+              aria-expanded={openIndex === i}
+              aria-controls={`faq-panel-${i}`}
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -150,6 +153,9 @@ export default function FAQ() {
             <AnimatePresence initial={false}>
               {openIndex === i && (
                 <motion.div
+                  id={`faq-panel-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-btn-${i}`}
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}

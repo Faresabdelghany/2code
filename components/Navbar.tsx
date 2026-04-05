@@ -61,6 +61,7 @@ export default function Navbar() {
         <a
           href="#"
           onClick={(e) => handleAnchorClick(e, "#hero")}
+          aria-label="2Code — Home"
           style={{ display: "flex", alignItems: "center" }}
         >
           <Logo height="3rem" />

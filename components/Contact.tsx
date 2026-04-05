@@ -7,9 +7,20 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", projectType: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
 
-  function handleSubmit() {
-    if (!form.name.trim() || !form.email.trim()) return;
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const newErrors: { name?: string; email?: string } = {};
+    if (!form.name.trim()) newErrors.name = "Name is required";
+    if (!form.email.trim()) newErrors.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = "Please enter a valid email";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    setErrors({});
     setSubmitted(true);
   }
 
@@ -115,8 +126,10 @@ export default function Contact() {
         {/* Form / Success */}
         <AnimatePresence mode="wait">
           {!submitted ? (
-            <motion.div
+            <motion.form
               key="form"
+              onSubmit={handleSubmit}
+              noValidate
               initial={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -130,11 +143,20 @@ export default function Contact() {
                   type="text"
                   placeholder="Your full name"
                   value={form.name}
-                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                  onChange={(e) => { setForm((f) => ({ ...f, name: e.target.value })); setErrors((err) => ({ ...err, name: undefined })); }}
                   style={inputStyle}
                   onFocus={(e) => (e.target.style.borderBottomColor = "var(--color-gd)")}
                   onBlur={(e) => (e.target.style.borderBottomColor = "rgba(240,235,227,.15)")}
+                  required
+                  aria-required="true"
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? "name-error" : undefined}
                 />
+                {errors.name && (
+                  <p id="name-error" role="alert" style={{ color: "var(--color-accent-red, #e05246)", fontSize: "0.75rem", marginTop: "0.4rem" }}>
+                    {errors.name}
+                  </p>
+                )}
               </div>
               <div>
                 <label htmlFor="contact-email" style={labelStyle}>Email</label>
@@ -143,11 +165,20 @@ export default function Contact() {
                   type="email"
                   placeholder="you@company.com"
                   value={form.email}
-                  onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                  onChange={(e) => { setForm((f) => ({ ...f, email: e.target.value })); setErrors((err) => ({ ...err, email: undefined })); }}
                   style={inputStyle}
                   onFocus={(e) => (e.target.style.borderBottomColor = "var(--color-gd)")}
                   onBlur={(e) => (e.target.style.borderBottomColor = "rgba(240,235,227,.15)")}
+                  required
+                  aria-required="true"
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                 />
+                {errors.email && (
+                  <p id="email-error" role="alert" style={{ color: "var(--color-accent-red, #e05246)", fontSize: "0.75rem", marginTop: "0.4rem" }}>
+                    {errors.email}
+                  </p>
+                )}
               </div>
               <div>
                 <label htmlFor="contact-project" style={labelStyle}>Project Type</label>
@@ -176,7 +207,7 @@ export default function Contact() {
                 />
               </div>
               <button
-                onClick={handleSubmit}
+                type="submit"
                 style={{
                   alignSelf: "flex-start",
                   display: "inline-flex",
@@ -207,7 +238,7 @@ export default function Contact() {
                 }}
               >
                 Send My Brief
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
@@ -220,9 +251,9 @@ export default function Contact() {
                   opacity: 0.7,
                 }}
               >
-                No commitment required. We&apos;ll respond within 24 hours with a free consultation.
+                No commitment required. We&apos;ll reach out with a free consultation.
               </p>
-            </motion.div>
+            </motion.form>
           ) : (
             <motion.div
               key="success"

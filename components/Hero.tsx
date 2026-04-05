@@ -120,14 +120,6 @@ export default function Hero() {
   return (
     <section ref={sectionRef} id="hero" data-sec="0" className="relative min-h-screen overflow-hidden bg-bk">
 
-      <video
-        autoPlay muted loop playsInline preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ display: "none" }}
-      >
-        <source src="/Creative-Spark-Design-Mar-29-10-19-29.mp4" type="video/mp4" />
-      </video>
-
       {/* Overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -262,7 +254,7 @@ export default function Hero() {
             onMouseLeave={(e) => (e.currentTarget.style.background = "var(--color-cr)")}
           >
             Get a Free Consultation
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
@@ -293,9 +285,10 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
+      <motion.button
         animate={inView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1.2, delay: inView ? 1.5 : 0 }}
+        aria-label="Scroll to first section"
         style={{
           position: "absolute",
           bottom: "2.5rem",
@@ -306,6 +299,8 @@ export default function Hero() {
           alignItems: "center",
           gap: "0.6rem",
           zIndex: 10,
+          background: "none",
+          border: "none",
           cursor: "pointer",
         }}
         onClick={() =>
@@ -331,7 +326,7 @@ export default function Hero() {
             background: "linear-gradient(to bottom, var(--color-tn), transparent)",
           }}
         />
-      </motion.div>
+      </motion.button>
 
       <style>{`
         @media (max-width: 480px) {

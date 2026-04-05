@@ -1,7 +1,7 @@
 // components/Testimonials.tsx
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const testimonials = [
@@ -29,25 +29,18 @@ const testimonials = [
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  function startAuto() {
-    intervalRef.current = setInterval(() => {
-      setCurrent((c) => (c + 1) % testimonials.length);
-    }, 5000);
-  }
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    startAuto();
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
+    if (paused) return;
+    const id = setInterval(() => {
+      setCurrent((c) => (c + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [paused]);
 
   function goTo(i: number) {
-    if (intervalRef.current) clearInterval(intervalRef.current);
     setCurrent(i);
-    startAuto();
   }
 
   return (
@@ -55,6 +48,14 @@ export default function Testimonials() {
       id="testimonials"
       data-sec="8"
       style={{ padding: "10rem 6rem", position: "relative", overflow: "hidden" }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+          setPaused(false);
+        }
+      }}
     >
       {/* Radial bg glow */}
       <div
@@ -88,7 +89,7 @@ export default function Testimonials() {
         </div>
 
         {/* Slides */}
-        <div style={{ position: "relative", minHeight: 220 }}>
+        <div aria-live="polite" aria-atomic="true" style={{ position: "relative", minHeight: 220 }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -133,18 +134,31 @@ export default function Testimonials() {
             <button
               key={i}
               onClick={() => goTo(i)}
-              aria-label={`Testimonial ${i + 1}`}
+              aria-label={`Go to testimonial ${i + 1}`}
               style={{
                 width: i === current ? 40 : 28,
-                height: 2,
-                background: i === current ? "var(--color-cr)" : "var(--color-cd)",
-                opacity: i === current ? 1 : 0.3,
+                height: 44,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "none",
                 border: "none",
                 cursor: "pointer",
-                transition: "all 0.4s ease",
                 padding: 0,
+                transition: "width 0.4s ease",
               }}
-            />
+            >
+              <span
+                style={{
+                  display: "block",
+                  width: "100%",
+                  height: 2,
+                  background: i === current ? "var(--color-cr)" : "var(--color-cd)",
+                  opacity: i === current ? 1 : 0.3,
+                  transition: "opacity 0.4s ease",
+                }}
+              />
+            </button>
           ))}
         </div>
       </div>

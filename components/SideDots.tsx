@@ -41,7 +41,7 @@ export default function SideDots() {
         zIndex: 1000,
         display: "flex",
         flexDirection: "column",
-        gap: "1rem",
+        gap: "0.25rem",
       }}
     >
       {["Hero", "Web Design", "Software", "Mobile", "Services", "Process", "Stats", "Testimonials", "FAQ", "Contact"].map((label, i) => (
@@ -50,17 +50,30 @@ export default function SideDots() {
           onClick={() => scrollToSection(i)}
           aria-label={label}
           style={{
-            width: 6,
-            height: 6,
-            borderRadius: "50%",
-            border: `1px solid ${active === i ? "var(--color-cr)" : "var(--color-cd)"}`,
-            background: active === i ? "var(--color-cr)" : "transparent",
+            width: 44,
+            height: 44,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "none",
+            border: "none",
             cursor: "pointer",
             padding: 0,
-            transform: active === i ? "scale(1.4)" : "scale(1)",
-            transition: "all 0.4s ease",
           }}
-        />
+        >
+          <span
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: "50%",
+              border: `1px solid ${active === i ? "var(--color-cr)" : "var(--color-cd)"}`,
+              background: active === i ? "var(--color-cr)" : "transparent",
+              transform: active === i ? "scale(1.4)" : "scale(1)",
+              transition: "all 0.4s ease",
+              display: "block",
+            }}
+          />
+        </button>
       ))}
 
       <style>{`

@@ -48,7 +48,7 @@ export default function Logo({ height = "2.5rem" }: LogoProps) {
         }}
       >
         CODE
-        <span style={{ color: "#e05246", fontWeight: 700 }}>.</span>
+        <span style={{ color: "var(--color-accent-red)", fontWeight: 700 }}>.</span>
       </span>
     </span>
   );

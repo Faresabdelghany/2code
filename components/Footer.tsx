@@ -36,6 +36,8 @@ export default function Footer() {
               style={{ display: "block", fontSize: "0.88rem", color: "var(--color-cr)", marginBottom: "0.8rem", fontWeight: 300, transition: "color 0.3s ease" }}
               onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--color-tn)")}
               onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
+              onFocus={(e) => ((e.target as HTMLElement).style.color = "var(--color-tn)")}
+              onBlur={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
             >
               {item}
             </a>
@@ -59,6 +61,8 @@ export default function Footer() {
               style={{ display: "block", fontSize: "0.88rem", color: "var(--color-cr)", marginBottom: "0.8rem", fontWeight: 300, transition: "color 0.3s ease" }}
               onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--color-tn)")}
               onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
+              onFocus={(e) => ((e.target as HTMLElement).style.color = "var(--color-tn)")}
+              onBlur={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
             >
               {item.label}
             </a>
@@ -81,6 +85,8 @@ export default function Footer() {
               style={{ display: "block", fontSize: "0.88rem", color: "var(--color-cr)", marginBottom: "0.8rem", fontWeight: 300, transition: "color 0.3s ease" }}
               onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--color-tn)")}
               onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
+              onFocus={(e) => ((e.target as HTMLElement).style.color = "var(--color-tn)")}
+              onBlur={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
             >
               {item.label}
             </a>
@@ -115,6 +121,8 @@ export default function Footer() {
               }}
               onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
               onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--color-cd)")}
+              onFocus={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
+              onBlur={(e) => ((e.target as HTMLElement).style.color = "var(--color-cd)")}
             >
               {social}
             </a>

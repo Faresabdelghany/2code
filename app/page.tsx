@@ -34,7 +34,7 @@ export default function Home() {
     <>
       <ScrollReveal />
       <Navbar />
-      <main>
+      <main id="main-content">
       <Hero />
 
       <Statement
@@ -136,8 +136,8 @@ export default function Home() {
             transition: "background 0.4s ease",
           }}
         >
-          Get a Free Consultation
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+          Start Your Project
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </a>
