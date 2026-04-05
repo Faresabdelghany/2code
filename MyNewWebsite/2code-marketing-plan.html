@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2Code Marketing Plan - 6 Month Growth Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8f9fb 0%, #eef0f5 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            margin-bottom: 60px;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        header .tagline {
+            font-size: 1.2em;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header .meta {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 0.95em;
+            opacity: 0.8;
+        }
+
+        /* Section Styling */
+        section {
+            background: white;
+            margin-bottom: 50px;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            color: #1a1a2e;
+            font-size: 2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #d4af37;
+            display: inline-block;
+        }
+
+        section h3 {
+            color: #2d2d5e;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        section h4 {
+            color: #2d2d5e;
+            font-size: 1.1em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* Highlights */
+        .highlight {
+            background: linear-gradient(135deg, #2d2d5e15 0%, #d4af3715 100%);
+            padding: 25px;
+            border-left: 4px solid #d4af37;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .highlight-value {
+            font-size: 1.8em;
+            color: #d4af37;
+            font-weight: 700;
+        }
+
+        .highlight-label {
+            color: #1a1a2e;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .grid-item {
+            background: #f8f9fb;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #e0e5f0;
+        }
+
+        .grid-item h4 {
+            color: #d4af37;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .grid-item p {
+            font-size: 0.95em;
+            color: #555;
+            margin: 8px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%);
+            color: white;
+        }
+
+        th {
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #e0e5f0;
+            font-size: 0.95em;
+        }
+
+        tbody tr:hover {
+            background: #f8f9fb;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Channel Cards */
+        .channel-card {
+            background: linear-gradient(135deg, #f8f9fb 0%, #eef0f5 100%);
+            border: 2px solid #e0e5f0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .channel-card h4 {
+            color: #d4af37;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .channel-card .detail {
+            margin: 12px 0;
+            font-size: 0.95em;
+        }
+
+        .channel-card .detail strong {
+            color: #1a1a2e;
+            display: inline-block;
+            width: 120px;
+        }
+
+        .channel-card .detail span {
+            color: #555;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .checklist li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid;
+        }
+
+        .alert-info {
+            background: #e3f2fd;
+            border-left-color: #2196F3;
+            color: #1565c0;
+        }
+
+        .alert-warning {
+            background: #fff3e0;
+            border-left-color: #FF9800;
+            color: #e65100;
+        }
+
+        .alert-success {
+            background: #e8f5e9;
+            border-left-color: #4CAF50;
+            color: #2e7d32;
+        }
+
+        /* Audience Card */
+        .audience-card {
+            background: white;
+            border: 2px solid #e0e5f0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .audience-card .audience-title {
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .audience-card .audience-item {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .audience-card .audience-item:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            border-top: 3px solid #d4af37;
+        }
+
+        footer p {
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+
+        .footer-credit {
+            margin-top: 15px;
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header .meta {
+                flex-direction: column;
+                gap: 10px;
+                font-size: 0.9em;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            section {
+                padding: 30px;
+            }
+
+            section h2 {
+                font-size: 1.6em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th, td {
+                padding: 10px 12px;
+            }
+        }
+
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-gold {
+            color: #d4af37;
+        }
+
+        .mt-40 {
+            margin-top: 40px;
+        }
+
+        .mb-30 {
+            margin-bottom: 30px;
+        }
+
+        /* Links */
+        a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-toc {
+            background: #f8f9fb;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #d4af37;
+        }
+
+        .nav-toc h3 {
+            margin-top: 0;
+        }
+
+        .nav-toc ol {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .nav-toc li {
+            margin: 8px 0;
+        }
+
+        .nav-toc a {
+            color: #d4af37;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>2CODE Marketing Plan</h1>
+            <p class="tagline">Lean 6-Month Growth Strategy — $100/Month Bootstrap Budget</p>
+            <div class="meta">
+                <span>🎯 Goal: 5-10 Clients</span>
+                <span>💰 Budget: $600 Total (Paid)</span>
+                <span>📅 Timeline: April - September 2026</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="nav-toc">
+            <h3>Quick Navigation</h3>
+            <ol>
+                <li><a href="#executive">Executive Summary</a></li>
+                <li><a href="#audience">Target Audience & Markets</a></li>
+                <li><a href="#channels">Marketing Channels</a></li>
+                <li><a href="#content">Content Strategy</a></li>
+                <li><a href="#tools">Tools & Platforms</a></li>
+                <li><a href="#projections">Financial Projections</a></li>
+                <li><a href="#action">Week-by-Week Action Plan</a></li>
+                <li><a href="#kpis">KPIs to Track</a></li>
+                <li><a href="#risks">Risks & Mitigation</a></li>
+            </ol>
+        </nav>
+
+        <!-- Section 1: Executive Summary -->
+        <section id="executive">
+            <h2>1. Executive Summary</h2>
+
+            <p style="font-size: 1.05em; color: #555; margin: 20px 0;">
+                2Code is positioned to acquire <strong>5-10 new clients</strong> within 6 months using a lean bootstrap approach. With a modest <strong>$100/month marketing budget</strong> ($600 total over 6 months), we combine one strategic paid channel (Google Ads) with high-leverage free channels to project <strong>$8K-28K in cumulative revenue</strong> and a <strong>13-47x ROI</strong> on marketing investment.
+            </p>
+
+            <div class="grid-3">
+                <div class="highlight">
+                    <div class="highlight-value">5-10</div>
+                    <div class="highlight-label">Target Clients (6 months)</div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-value">$8-28K</div>
+                    <div class="highlight-label">Projected Revenue</div>
+                </div>
+                <div class="highlight">
+                    <div class="highlight-value">13-47x</div>
+                    <div class="highlight-label">Expected ROI</div>
+                </div>
+            </div>
+
+            <h3>Core Strategy</h3>
+            <p>
+                Our approach is <strong>focused and practical</strong>: all $100/month goes to Google Ads (search campaigns targeting high-intent keywords), paired with five free channels that drive volume, credibility, and compounding growth. This is a pure bootstrap play — requires hustle on free channels, but delivers strong results.
+            </p>
+            <ul class="checklist">
+                <li><strong>Google Ads ($100/mo):</strong> Capture high-intent searches from Egypt and Gulf markets; 35-100 clicks/month at $1-3 CPC in Egypt</li>
+                <li><strong>Google Business Profile (Free):</strong> Local SEO presence, organic local leads</li>
+                <li><strong>Upwork + Mostaql (Free):</strong> High-volume lead generation from freelance platforms</li>
+                <li><strong>LinkedIn Organic (Free):</strong> 2-3 posts/week showing work, targets Gulf/KSA decision-makers</li>
+                <li><strong>Clutch + GoodFirms (Free):</strong> Directory presence, credibility, eventual organic leads</li>
+                <li><strong>Google Search Console + Content (Free):</strong> Long-term compounding SEO growth</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>Bootstrap Mindset:</strong> This plan trades marketing spend for time investment. You'll spend hours on Upwork proposals, LinkedIn content, and profile optimization. By month 3, paid ads become a smaller percentage of your lead mix as free channels compound. This is intentional and sustainable.
+            </div>
+        </section>
+
+        <!-- Section 2: Target Audience -->
+        <section id="audience">
+            <h2>2. Target Audience & Markets</h2>
+
+            <p style="color: #555; margin-bottom: 30px;">
+                We serve three primary audience segments. With limited ad budget, we start with the highest-intent, lowest-cost segment (Egyptian SMEs) and expand geographically as we validate.
+            </p>
+
+            <div class="audience-card">
+                <div class="audience-title">PRIMARY SEGMENT: Egyptian SMEs & Startups (Google Ads focus)</div>
+                <div class="audience-item"><strong>Who they are:</strong> Local businesses 10-100 employees, bootstrapped startups, established companies digitizing for first time</div>
+                <div class="audience-item"><strong>Why priority:</strong> Lowest CPC ($1-3 in Egypt vs. $5-8 in Gulf), high search volume, fast decision cycles (2-4 weeks)</div>
+                <div class="audience-item"><strong>What they search:</strong> "تصميم مواقع مصر", "شركة برمجة", "website design Egypt", "landing page Cairo", "متجر الكتروني"</div>
+                <div class="audience-item"><strong>Budget range:</strong> $1.5K-10K per project</div>
+                <div class="audience-item"><strong>Where to reach:</strong> Google Search (primary), Upwork, WhatsApp, LinkedIn</div>
+            </div>
+
+            <div class="audience-card">
+                <div class="audience-title">SECONDARY SEGMENT: Saudi & Gulf Enterprises (future expansion)</div>
+                <div class="audience-item"><strong>Who they are:</strong> Established companies in KSA, UAE, Kuwait; IT procurement teams</div>
+                <div class="audience-item"><strong>When to target:</strong> Month 4+ when you have budget cushion and Clutch reviews</div>
+                <div class="audience-item"><strong>Budget range:</strong> $10K-40K+ per project (much higher value)</div>
+                <div class="audience-item"><strong>Where to reach:</strong> LinkedIn organic, Clutch, Upwork (high-end projects)</div>
+            </div>
+
+            <div class="audience-card">
+                <div class="audience-title">TERTIARY SEGMENT: International Remote Clients</div>
+                <div class="audience-item"><strong>Who they are:</strong> EU/US startups seeking cost-effective development teams</div>
+                <div class="audience-item"><strong>Why valuable:</strong> Upwork is designed for this; recurring work often leads to retainers</div>
+                <div class="audience-item"><strong>Budget range:</strong> $8K-30K+ per project</div>
+                <div class="audience-item"><strong>Where to reach:</strong> Upwork (primary), portfolio website, GitHub profile</div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Market Sizing</h3>
+            <p>
+                <strong>Egypt market:</strong> ~50,000 SMEs needing websites; we target 0.02-0.1% (1-5 clients) in 6 months via paid search.<br>
+                <strong>Freelance platforms:</strong> Unlimited demand; focus on winning 5-10 quality jobs to build track record.<br>
+                <strong>Upside potential:</strong> As portfolio and reviews grow (months 3-6), conversion rates improve and average project value increases.
+            </p>
+        </section>
+
+        <!-- Section 3: Marketing Channels -->
+        <section id="channels">
+            <h2>3. Marketing Channels — Where to Spend & Hustle</h2>
+
+            <p style="color: #555; margin-bottom: 30px;">
+                Total budget: <strong>$100/month ($600 over 6 months)</strong>. All of it goes to Google Ads. Everything else is free but requires active execution.
+            </p>
+
+            <div class="channel-card">
+                <h4>🔍 Google Ads (Search) — $100/month [PAID]</h4>
+                <div class="detail"><strong>Strategy:</strong> <span>All $100/mo goes to search campaigns. High ROI, measurable, Egypt = low CPC</span></div>
+                <div class="detail"><strong>Target keywords (mix Arabic + English):</strong> <span>"تصميم مواقع مصر" (web design Egypt), "شركة برمجة" (development company), "landing page design Cairo", "تطوير متجر الكتروني" (e-commerce development), "web development Egypt", "mobile app Egypt"</span></div>
+                <div class="detail"><strong>Expected CPC:</strong> <span>$1-3 in Egypt (very affordable for bootstraps)</span></div>
+                <div class="detail"><strong>Expected monthly leads:</strong> <span>35-100 clicks/month → 2-3 qualified leads (assuming ~3% conversion on landing page)</span></div>
+                <div class="detail"><strong>Monthly math:</strong> <span>$100 budget ÷ $2 avg CPC = 50 clicks. At 3% conversion = 1-2 leads/month</span></div>
+                <div class="detail"><strong>Advantage:</strong> <span>Every click is trackable; you optimize weekly based on real data</span></div>
+            </div>
+
+            <div class="channel-card">
+                <h4>🏪 Google Business Profile — FREE</h4>
+                <div class="detail"><strong>Why critical:</strong> <span>Local SEO, client trust, zero cost. Appears in Google Maps and local search results</span></div>
+                <div class="detail"><strong>Setup:</strong> <span>Create profile for "2Code - Web Development Agency" (Giza or Cairo). Optimize with portfolio photos, service descriptions, keywords</span></div>
+                <div class="detail"><strong>Ongoing:</strong> <span>Post 1-2 updates/month; respond to reviews; maintain fresh content</span></div>
+                <div class="detail"><strong>Expected leads:</strong> <span>1-2/month by month 4+ as you accumulate reviews</span></div>
+            </div>
+
+            <div class="channel-card">
+                <h4>💼 Upwork — FREE (just time)</h4>
+                <div class="detail"><strong>Why essential:</strong> <span>Largest freelance platform; clients are pre-qualified and actively looking; fastest path to first clients</span></div>
+                <div class="detail"><strong>Strategy:</strong> <span>Bid on 5-10 projects/week. Focus on Egypt + MENA projects initially (less competition, better position). Customize proposals (not templates).</span></div>
+                <div class="detail"><strong>First-client strategy:</strong> <span>Consider 15-20% discount on first 1-2 projects to land 5-star reviews and appear in Upwork search results faster</span></div>
+                <div class="detail"><strong>Expected monthly leads:</strong> <span>2-4 project inquiries/month by week 3+</span></div>
+                <div class="detail"><strong>Timeline:</strong> <span>4-6 weeks to accumulate 5+ reviews and strong profile visibility</span></div>
+            </div>
+
+            <div class="channel-card">
+                <h4>📱 Mostaql (Arabic freelance platform) — FREE</h4>
+                <div class="detail"><strong>Why:</strong> <span>Parallel to Upwork. Popular in Egypt and MENA. Less competition than Upwork. Arabic-speaking clients prefer it.</span></div>
+                <div class="detail"><strong>Strategy:</strong> <span>Set up profile with portfolio (same approach as Upwork). Bid on 3-5 projects/week.</span></div>
+                <div class="detail"><strong>Expected monthly leads:</strong> <span>1-2 projects/month</span></div>
+            </div>
+
+            <div class="channel-card">
+                <h4>📂 Directory Listings — FREE</h4>
+                <div class="detail"><strong>Why critical:</strong> <span>SEO authority, client trust, $0 CAC. Google and clients look here.</span></div>
+                <div class="detail"><strong>Priority registrations:</strong></div>
+                <ul style="margin: 10px 0 10px 40px; color: #555;">
+                    <li>Clutch.co (most important for B2B credibility)</li>
+                    <li>GoodFirms (growing platform, good reviews stick)</li>
+                    <li>TechBehemoths (popular in MENA)</li>
+                </ul>
+                <div class="detail"><strong>Timeline:</strong> <span>Register week 1; accumulate 5+ reviews by month 3; expect 1-2 inbound leads/month by month 4</span></div>
+                <div class="detail"><strong>Key:</strong> <span>Request testimonials + reviews from every project immediately after completion</span></div>
+            </div>
+
+            <div class="channel-card">
+                <h4>💬 LinkedIn Organic (Posts) — FREE</h4>
+                <div class="detail"><strong>Why:</strong> <span>Builds authority. Decision-makers (especially in Gulf) scroll LinkedIn. Costs nothing but consistency.</span></div>
+                <div class="detail"><strong>Cadence:</strong> <span>2-3 posts/week (not heavy; 5-10 min per post)</span></div>
+                <div class="detail"><strong>Content mix:</strong></div>
+                <ul style="margin: 10px 0 10px 40px; color: #555;">
+                    <li>"Just shipped..." — project showcase with metrics (tech stack, turnaround, client result)</li>
+                    <li>"Quick tip" — 3-5 actionable dev/design advice for SMEs</li>
+                    <li>"Milestone" — team win, company update, culture snapshot</li>
+                </ul>
+                <div class="detail"><strong>Expected leads:</strong> <span>1-2/month by month 4+ as network grows and posts get traction in Gulf region</span></div>
+            </div>
+
+            <div class="channel-card">
+                <h4>🌱 Content + SEO — FREE</h4>
+                <div class="detail"><strong>Focus areas:</strong></div>
+                <ul style="margin: 10px 0 10px 40px; color: #555;">
+                    <li>Google Search Console: submit sitemap, monitor search queries</li>
+                    <li>Portfolio: add each completed project within 1 week of launch</li>
+                    <li>Blog (optional): 1 post/month on SEO keywords (e.g., "7 Things to Know Before Building an E-commerce Site")</li>
+                </ul>
+                <div class="detail"><strong>Expected ramp-up:</strong> <span>Minimal leads months 1-2; 1-2/month by month 5+ as authority builds</span></div>
+                <div class="detail"><strong>Why important:</strong> <span>Organic is compounding; by month 12, should drive 20-30% of leads with $0 incremental spend</span></div>
+            </div>
+        </section>
+
+        <!-- Section 4: Content Strategy -->
+        <section id="content">
+            <h2>4. Content Strategy</h2>
+
+            <p style="color: #555; margin-bottom: 30px;">
+                Content does two things: (1) builds trust and authority for people who see you, and (2) provides proof for your Google Ads landing page and portfolio.
+            </p>
+
+            <h3>Publishing Schedule (Lean Version)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Frequency</th>
+                        <th>Content Types</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>LinkedIn</strong></td>
+                        <td>2-3x/week</td>
+                        <td>Project showcases, dev tips, behind-the-scenes</td>
+                        <td>Authority with B2B decision makers (esp. Gulf)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Instagram/Twitter</strong></td>
+                        <td>1-2x/week</td>
+                        <td>Before/after designs, quick tips, agency updates</td>
+                        <td>Social proof, brand awareness (optional)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Website Portfolio</strong></td>
+                        <td>Add after each project</td>
+                        <td>Project case studies with metrics</td>
+                        <td>Landing page credibility for Google Ads</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blog</strong></td>
+                        <td>1x/month (optional)</td>
+                        <td>SEO-optimized guides on common questions</td>
+                        <td>Organic search traffic over time</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Testimonial Collection (CRITICAL)</h3>
+            <p>
+                <strong>Timing:</strong> Request immediately after project delivery (highest satisfaction).<br>
+                <strong>Format:</strong> 30-60 second video (phone-recorded is fine) + short written quote.<br>
+                <strong>Questions to ask:</strong> "What was your biggest challenge before?" "How has this impacted your business?" "Would you recommend us?"<br>
+                <strong>Usage:</strong> Website testimonials page, Clutch/GoodFirms profiles, Google Ads landing page, LinkedIn posts.<br>
+                <strong>Goal:</strong> 5+ video testimonials by month 3. This is your most powerful conversion asset.
+            </p>
+
+            <div class="alert alert-success">
+                <strong>Why this matters:</strong> Every project completion is an opportunity to build credibility assets. Testimonials cost $0 but are worth thousands in conversion lift.
+            </div>
+        </section>
+
+        <!-- Section 5: Tools & Platforms -->
+        <section id="tools">
+            <h2>5. Tools & Platforms Needed</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tool</th>
+                        <th>Purpose</th>
+                        <th>Cost</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Google Ads</strong></td>
+                        <td>Search campaigns (Egypt + Arabic keywords)</td>
+                        <td>$100/mo</td>
+                        <td>CRITICAL</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Business Profile</strong></td>
+                        <td>Local SEO presence</td>
+                        <td>Free</td>
+                        <td>CRITICAL</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Search Console</strong></td>
+                        <td>SEO monitoring, keyword tracking</td>
+                        <td>Free</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Upwork</strong></td>
+                        <td>Freelance project bidding</td>
+                        <td>Free (bidding + fees on wins)</td>
+                        <td>CRITICAL</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mostaql</strong></td>
+                        <td>Arabic freelance platform</td>
+                        <td>Free</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clutch.co, GoodFirms, TechBehemoths</strong></td>
+                        <td>Agency directories + reviews</td>
+                        <td>Free</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LinkedIn</strong></td>
+                        <td>Organic posting + networking</td>
+                        <td>Free</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Calendly</strong></td>
+                        <td>Scheduling calls (free tier)</td>
+                        <td>Free</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Suite (Docs, Sheets, Drive)</strong></td>
+                        <td>Project tracking, lead management</td>
+                        <td>Free (Google account)</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Canva</strong></td>
+                        <td>Create ad graphics, LinkedIn posts (free tier ok)</td>
+                        <td>Free (or $13/mo Pro for templates)</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Buffer or Later</strong></td>
+                        <td>Schedule social posts (optional)</td>
+                        <td>Free tier available</td>
+                        <td>Low (optional)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-success">
+                <strong>Budget breakdown:</strong> $100/month (Google Ads only) + $0 everything else (time investment only). This is intentional. You'll spend evenings/weekends on Upwork, LinkedIn, and profiles, but the paid spend is razor-focused.
+            </div>
+        </section>
+
+        <!-- Section 6: Financial Projections -->
+        <section id="projections">
+            <h2>6. Financial Projections & ROI</h2>
+
+            <p style="color: #555; margin-bottom: 30px;">
+                Conservative month-by-month projections. These assume disciplined execution on free channels + consistent Google Ads optimization.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Ad Spend</th>
+                        <th>Total Leads</th>
+                        <th>Clients Won</th>
+                        <th>Revenue</th>
+                        <th>Cumulative</th>
+                        <th>ROI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>April</strong></td>
+                        <td>$100</td>
+                        <td>5-8</td>
+                        <td>0-1</td>
+                        <td>$0-3K</td>
+                        <td>$0-3K</td>
+                        <td>0-30x</td>
+                    </tr>
+                    <tr>
+                        <td><strong>May</strong></td>
+                        <td>$100</td>
+                        <td>8-12</td>
+                        <td>1-2</td>
+                        <td>$2K-5K</td>
+                        <td>$2K-8K</td>
+                        <td>10-40x</td>
+                    </tr>
+                    <tr>
+                        <td><strong>June</strong></td>
+                        <td>$100</td>
+                        <td>12-18</td>
+                        <td>1-2</td>
+                        <td>$2K-8K</td>
+                        <td>$4K-16K</td>
+                        <td>20-80x</td>
+                    </tr>
+                    <tr>
+                        <td><strong>July</strong></td>
+                        <td>$100</td>
+                        <td>15-22</td>
+                        <td>1-2</td>
+                        <td>$3K-10K</td>
+                        <td>$7K-26K</td>
+                        <td>35-130x</td>
+                    </tr>
+                    <tr>
+                        <td><strong>August</strong></td>
+                        <td>$100</td>
+                        <td>18-28</td>
+                        <td>2-3</td>
+                        <td>$5K-15K</td>
+                        <td>$12K-41K</td>
+                        <td>60-205x</td>
+                    </tr>
+                    <tr style="font-weight: 600; background: #f8f9fb;">
+                        <td><strong>September</strong></td>
+                        <td>$100</td>
+                        <td>20-35</td>
+                        <td>2-3</td>
+                        <td>$5K-15K</td>
+                        <td>$17K-56K</td>
+                        <td>85-280x</td>
+                    </tr>
+                    <tr style="font-weight: 600; background: #e8f5e9;">
+                        <td colspan="2"><strong>6-MONTH TOTALS</strong></td>
+                        <td><strong>78-153 leads</strong></td>
+                        <td><strong>7-13 clients</strong></td>
+                        <td>—</td>
+                        <td><strong>$8K-28K</strong></td>
+                        <td><strong>13-47x</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 40px;">Key Assumptions</h3>
+            <ul class="checklist">
+                <li><strong>Lead sources breakdown:</strong> Google Ads 30-40%, Upwork 25-35%, Organic/Referral 15-20%, Directories 10-15%</li>
+                <li><strong>Lead-to-client conversion:</strong> 9-12% (conservative; some prospects aren't ready yet)</li>
+                <li><strong>Average project value:</strong> ~$3,500 (mix of small landing pages $2K, e-commerce $6K-8K, retainers $2K-5K/mo)</li>
+                <li><strong>Google Ads efficiency:</strong> $1-3 CPC in Egypt, 1-2 leads/month from paid search</li>
+                <li><strong>Upwork pace:</strong> 5-10 proposals/week, land 1-2 projects/month by month 2</li>
+                <li><strong>Ramp-up:</strong> First 2 months are hardest (building portfolio + reviews); months 4-6 accelerate as momentum builds</li>
+            </ul>
+
+            <h3>What This Means</h3>
+            <p>
+                <strong>Realistic range by month 6:</strong> $8K-28K cumulative revenue on $600 spent = 13-47x ROI. Conservative floor: 7 clients, ~$24K revenue (40x). Optimistic scenario: 13 clients, ~$46K revenue (77x).
+            </p>
+            <p>
+                <strong>Why the wide range?</strong> Portfolio strength, conversion messaging, and luck with early clients all matter. First 2-3 clients are the hardest. After that, word-of-mouth and reviews compound rapidly.
+            </p>
+
+            <div class="alert alert-warning">
+                <strong>Important:</strong> These projections assume Month 1-2 you're grinding on Upwork and building profiles. By Month 3, directories kick in. By Month 4, you might see 2-3 leads/month from organic channels alone, allowing you to reduce reliance on paid ads if needed.
+            </div>
+        </section>
+
+        <!-- Section 7: Action Plan -->
+        <section id="action">
+            <h2>7. Week-by-Week Action Plan (First 8 Weeks)</h2>
+
+            <p style="color: #555; margin-bottom: 30px;">
+                Lean execution. No fluff. Each task has real ROI.
+            </p>
+
+            <h3>Week 1: Foundations (April 1-7)</h3>
+            <p style="color: #555; font-weight: 500; margin-bottom: 15px;">🎯 Goal: Get profiles live and tracking set up</p>
+            <ul class="checklist">
+                <li>Google Business Profile: create and optimize for "2Code - Web Development" (Giza/Cairo location)</li>
+                <li>Google Search Console: submit sitemap, verify ownership</li>
+                <li>Google Analytics 4: install tracking code on website</li>
+                <li>Create Google Ads account (link to GA4)</li>
+                <li>Create Upwork profile: add portfolio photos, write compelling overview, set rates</li>
+                <li>Create Mostaql profile: same as Upwork (Arabic market)</li>
+                <li>Register on Clutch.co, GoodFirms, TechBehemoths (fill out profiles, add portfolio)</li>
+                <li>Set up Calendly (free tier) → link from website</li>
+                <li>Email domain: verify DKIM/SPF (ensures deliverability for outreach)</li>
+            </ul>
+
+            <h3 style="margin-top: 40px;">Week 2: Launch Google Ads (April 8-14)</h3>
+            <p style="color: #555; font-weight: 500; margin-bottom: 15px;">🎯 Goal: Get first paid traffic live and track conversions</p>
+            <ul class="checklist">
+                <li>Set up Google Ads conversion tracking (form submissions on landing page)</li>
+                <li>Create first Search campaign:
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li>3-4 ad groups: landing pages, e-commerce, custom dev, general web dev</li>
+                        <li>15-20 keywords per group (English + Arabic mix)</li>
+                        <li>Example Arabic keywords: "تصميم مواقع مصر", "تطوير متجر الكتروني", "شركة برمجة مصر"</li>
+                        <li>Write 4-5 ad variations per ad group</li>
+                        <li>Set daily budget $3.50 to start (test, then ramp)</li>
+                    </ul>
+                </li>
+                <li>Create lead form landing page (name, email, company, project type)</li>
+                <li>Download Canva Pro ($13/mo if needed; free tier works too)</li>
+                <li>Create first LinkedIn post: "We're live in the market. Here's what we're building..." (3-5 min read)</li>
+            </ul>
+
+            <h3 style="margin-top: 40px;">Week 3: Start the Grind (April 15-21)</h3>
+            <p style="color: #555; font-weight: 500; margin-bottom: 15px;">🎯 Goal: First Upwork proposals + consistent content</p>
+            <ul class="checklist">
+                <li>Apply to first 10 Upwork projects (Egypt + MENA focus):
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li>Customize each proposal (no templates)</li>
+                        <li>Show relevant portfolio examples</li>
+                        <li>Offer competitive pricing for first wins</li>
+                    </ul>
+                </li>
+                <li>Apply to first 5 Mostaql projects (Arabic keywords)</li>
+                <li>Create LinkedIn content calendar (3 posts for week 3-4)</li>
+                <li>Publish first 2 LinkedIn posts (project showcase + quick tip)</li>
+                <li>Start Google Ads daily budget tracking spreadsheet (manual is fine)</li>
+            </ul>
+
+            <h3 style="margin-top: 40px;">Week 4: Optimize & Scale (April 22-28)</h3>
+            <p style="color: #555; font-weight: 500; margin-bottom: 15px;">🎯 Goal: First client wins, Google Ads optimization, full $100 budget deployed</p>
+            <ul class="checklist">
+                <li>Review Google Ads data (CTR, CPC, conversion rate):
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li>Pause keywords with CPC > $5</li>
+                        <li>Double bid on top performers</li>
+                        <li>Ramp budget to full $100/month ($3.20/day)</li>
+                    </ul>
+                </li>
+                <li>Apply to 10+ more Upwork projects (continue momentum)</li>
+                <li>Publish 2 more LinkedIn posts (maintain 2-3x/week)</li>
+                <li>Reach out to 3-5 warm contacts for referrals (email + LinkedIn)</li>
+                <li>If you've won first project: request video testimonial immediately</li>
+            </ul>
+
+            <h3 style="margin-top: 40px;">Weeks 5-8: Weekly Grind (April 29 - May 26)</h3>
+            <p style="color: #555; font-weight: 500; margin-bottom: 15px;">🎯 Goal: Momentum + compounding (leads, reviews, portfolio)</p>
+            <ul class="checklist">
+                <li><strong>Every Monday:</strong> Review weekly Google Ads metrics → pause underperformers, boost winners</li>
+                <li><strong>Every Monday/Wednesday:</strong> Apply to 5-7 new Upwork projects</li>
+                <li><strong>Every Wednesday/Friday:</strong> Publish LinkedIn post (keep 2-3x/week)</li>
+                <li><strong>After each project completion:</strong> Request video testimonial + written review + Clutch/GoodFirms review</li>
+                <li><strong>Every Friday:</strong> Weekly summary: leads, conversions, cash in/out</li>
+                <li><strong>By end of May:</strong> Have 2-3 completed projects + reviews on Clutch</li>
+                <li><strong>Ongoing:</strong> Track all metrics in Google Sheet (website visitors, leads, conversions, spend)</li>
+            </ul>
+
+            <div class="alert alert-info">
+                <strong>Execution tips:</strong><br>
+                • Time-box Upwork applications (1 hour/day max, quality over quantity)<br>
+                • Batch LinkedIn content (spend 1 hour/week creating 2-3 posts)<br>
+                • Track everything in a simple spreadsheet<br>
+                • Don't aim for perfection — launch with 80% ready<br>
+                • Celebrate small wins (first lead, first client, first review)
+            </div>
+        </section>
+
+        <!-- Section 8: KPIs -->
+        <section id="kpis">
+            <h2>8. KPIs to Track Weekly</h2>
+
+            <p style="color: #555; margin-bottom: 30px;">
+                Simple tracking. Update every Monday (5 min check-in).
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>KPI</th>
+                        <th>Month 1</th>
+                        <th>Month 3</th>
+                        <th>Month 6</th>
+                        <th>Where to Track</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Google Ads Spend</strong></td>
+                        <td>$100</td>
+                        <td>$100</td>
+                        <td>$100</td>
+                        <td>Google Ads</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Ads Clicks</strong></td>
+                        <td>30-50</td>
+                        <td>40-60</td>
+                        <td>50-70</td>
+                        <td>Google Ads</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Ads CPC</strong></td>
+                        <td>$2-3</td>
+                        <td>$1.50-2.50</td>
+                        <td>$1-2</td>
+                        <td>Google Ads</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Leads (all sources)</strong></td>
+                        <td>5-8</td>
+                        <td>12-18</td>
+                        <td>20-35</td>
+                        <td>Google Sheet</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Upwork proposals/week</strong></td>
+                        <td>5-7</td>
+                        <td>7-10</td>
+                        <td>5-10</td>
+                        <td>Upwork profile</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clients Won</strong></td>
+                        <td>0-1</td>
+                        <td>1-2</td>
+                        <td>2-3</td>
+                        <td>Invoices</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Directory Reviews (Clutch)</strong></td>
+                        <td>0-1</td>
+                        <td>3-5</td>
+                        <td>8-10+</td>
+                        <td>Clutch.co</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Website Visitors</strong></td>
+                        <td>100-200</td>
+                        <td>400-800</td>
+                        <td>800-1,500</td>
+                        <td>Google Analytics 4</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LinkedIn followers/reach</strong></td>
+                        <td>0-20</td>
+                        <td>50-100</td>
+                        <td>150-300</td>
+                        <td>LinkedIn analytics</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monthly Revenue</strong></td>
+                        <td>$0-3K</td>
+                        <td>$2K-8K</td>
+                        <td>$5K-15K</td>
+                        <td>Invoice total</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 40px;">Simple Tracking System</h3>
+            <p>
+                Create a Google Sheet with columns for: Date, Total Leads, Leads Source, Clients This Month, Revenue, Google Ads Spend, Notes. Update every Monday. Takes 5 minutes.
+            </p>
+
+            <h3>Weekly Review Cadence</h3>
+            <div class="grid-2">
+                <div class="grid-item">
+                    <h4>Monday Morning</h4>
+                    <p>Review weekend leads, check Upwork inbox, update tracking sheet.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Wednesday Check-in</h4>
+                    <p>Mid-week optimization: review Google Ads, pause underperformers.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Friday Wrap-Up</h4>
+                    <p>Weekly summary, celebrate wins, batch content for next week.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>Monthly Review (1st)</h4>
+                    <p>Full month analysis, ROI calculation, adjust strategy for next month.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 9: Risks -->
+        <section id="risks">
+            <h2>9. Risks & Mitigation</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk</th>
+                        <th>Likelihood</th>
+                        <th>Impact</th>
+                        <th>Mitigation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Slow organic growth in first 2 months</strong></td>
+                        <td>High</td>
+                        <td>Low</td>
+                        <td>Organic is bonus; paid search + Upwork are primary. Organic becomes meaningful month 4+.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Ads CPC higher than expected</strong></td>
+                        <td>Medium</td>
+                        <td>Medium</td>
+                        <td>Focus first on Egypt-only (cheapest). Expand to Gulf cautiously. Test different keywords weekly.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>First client wins take too long</strong></td>
+                        <td>Medium</td>
+                        <td>High</td>
+                        <td>Increase Upwork/Mostaql intensity (10+ proposals/week). Offer 15-20% discount on first 1-2 projects to accelerate reviews.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Portfolio too thin for quality leads</strong></td>
+                        <td>High</td>
+                        <td>Medium</td>
+                        <td>Strategic discounting on first 1-2 projects to build portfolio + testimonials. This investment pays 3x over in future high-value clients.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Upwork algorithm changes / visibility drops</strong></td>
+                        <td>Medium</td>
+                        <td>Medium</td>
+                        <td>Never depend on Upwork >30% of pipeline. Diversify across Google Ads, directories, organic. Upwork is volume play.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Team burnout (juggling everything)</strong></td>
+                        <td>High</td>
+                        <td>High</td>
+                        <td>Time-box activities: 1 hr/day Upwork, 1 hr/week LinkedIn content, 30 min/week directory updates. Batch work, don't multitask.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Competitors undercut pricing</strong></td>
+                        <td>High</td>
+                        <td>Low</td>
+                        <td>2Code's advantage is quality + local presence + post-launch support. Don't race to bottom. Position as premium-affordable (not cheapest).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lead quality from Google Ads is poor</strong></td>
+                        <td>Medium</td>
+                        <td>Medium</td>
+                        <td>Refine targeting weekly. Add negative keywords. Test different landing pages. Track lead source quality in spreadsheet.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Project delays push revenue back</strong></td>
+                        <td>Medium</td>
+                        <td>Low</td>
+                        <td>Use deposits (50% upfront standard). Shorter project cycles for SMEs. Don't count revenue until signed contract.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google/Meta policy violation on ads</strong></td>
+                        <td>Low</td>
+                        <td>High</td>
+                        <td>Review ad policies before launch. Avoid misleading claims. Keep ads professional and factual.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 40px;">Contingency Plan</h3>
+            <p>
+                <strong>If Month 2 has < 5 leads:</strong> Add 10+ more keywords to Google Ads; test new landing page messaging; increase Upwork applications to 15+/week.<br>
+                <strong>If Google Ads CPC > $3:</strong> Pause high-cost keywords; pivot to Arabic keywords (cheaper); consider geographic targeting adjustments.<br>
+                <strong>If Upwork wins are slow:</strong> Offer first 2 projects at 20% discount to land quick wins and build reviews. This accelerates algorithm momentum.<br>
+                <strong>If directories aren't driving leads by Month 4:</strong> Focus on collecting more reviews (request from every client); add GoodFirms if not already; consider paid directory options later.
+            </p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>
+                <strong>2Code Marketing Plan</strong> | April 2026 | Lean Bootstrap Edition<br>
+                <strong>Investment:</strong> $100/month ($600 over 6 months, all to Google Ads)<br>
+                <strong>Target:</strong> 5-10 new clients | $8K-28K revenue | 13-47x ROI<br>
+                <strong>Strategy:</strong> Focused Google Ads (high-intent search) + 5 free channels (Upwork, LinkedIn, directories, local SEO)
+            </p>
+            <p class="footer-credit">
+                This is a living document. Update monthly based on actual performance. Success requires consistent execution on free channels (the grind) + disciplined Google Ads optimization. First 2 months are hardest; months 4-6 compound as reviews and portfolio build.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

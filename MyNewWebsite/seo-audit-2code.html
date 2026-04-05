@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report — 2Code Agency</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a2e;
+    background: #f8f9fb;
+    line-height: 1.65;
+    padding: 0;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #0a0a09 0%, #1a1a2e 60%, #2d2d5e 100%);
+    color: #fff;
+    padding: 80px 48px 64px;
+    text-align: center;
+  }
+  .cover h1 { font-size: 2.6rem; font-weight: 700; margin-bottom: 12px; }
+  .cover .subtitle { font-size: 1.15rem; opacity: .75; margin-bottom: 8px; }
+  .cover .meta { font-size: .9rem; opacity: .5; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 48px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+    color: #0a0a09;
+  }
+  h3 { font-size: 1.15rem; font-weight: 600; margin: 28px 0 10px; color: #2d2d5e; }
+
+  p, li { font-size: .95rem; }
+  p { margin-bottom: 12px; }
+  ul, ol { margin: 8px 0 16px 20px; }
+  li { margin-bottom: 6px; }
+
+  .exec-box {
+    background: #fff;
+    border-left: 4px solid #2d2d5e;
+    padding: 24px 28px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    margin: 24px 0;
+  }
+
+  .score-row {
+    display: flex; gap: 16px; flex-wrap: wrap; margin: 24px 0;
+  }
+  .score-card {
+    flex: 1; min-width: 140px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .score-card .num { font-size: 2rem; font-weight: 700; }
+  .score-card .label { font-size: .8rem; color: #666; margin-top: 4px; }
+  .green { color: #16a34a; }
+  .amber { color: #d97706; }
+  .red { color: #dc2626; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    margin: 16px 0 24px;
+    font-size: .88rem;
+  }
+  th {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+  td { padding: 10px 14px; border-bottom: 1px solid #eee; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8f9fb; }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .badge-high { background: #fee2e2; color: #dc2626; }
+  .badge-medium { background: #fef3c7; color: #d97706; }
+  .badge-low { background: #dcfce7; color: #16a34a; }
+  .badge-critical { background: #dc2626; color: #fff; }
+  .badge-pass { background: #dcfce7; color: #16a34a; }
+  .badge-fail { background: #fee2e2; color: #dc2626; }
+  .badge-warn { background: #fef3c7; color: #d97706; }
+  .badge-info { background: #e0e7ff; color: #4338ca; }
+  .badge-trans { background: #ede9fe; color: #7c3aed; }
+  .badge-comm { background: #fce7f3; color: #db2777; }
+  .badge-nav { background: #cffafe; color: #0891b2; }
+
+  .action-block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 24px;
+    margin: 16px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .action-block h4 { font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
+
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+  .tag { font-size: .72rem; padding: 2px 8px; border-radius: 6px; background: #f1f5f9; color: #475569; }
+
+  footer.report-footer {
+    text-align: center;
+    padding: 32px;
+    font-size: .8rem;
+    color: #999;
+    border-top: 1px solid #eee;
+    margin-top: 48px;
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>Full SEO Audit</h1>
+  <div class="subtitle">2code-kappa.vercel.app &nbsp;·&nbsp; 2Code Agency</div>
+  <div class="meta">Prepared April 3, 2026</div>
+</div>
+
+<div class="container">
+
+<!-- ======== EXECUTIVE SUMMARY ======== -->
+<h2>1. Executive Summary</h2>
+<div class="exec-box">
+  <p><strong>2Code has a solid on-page SEO foundation</strong> — the homepage features well-crafted meta tags, structured data (Organization, LocalBusiness, FAQPage), and a clear keyword focus on software development services in Egypt. However, the site's <strong>single-page architecture is the biggest bottleneck</strong>: all content lives on one URL, which severely limits keyword targeting, internal linking opportunities, and crawlable surface area.</p>
+  <p><strong>Top 3 priorities that will have the most impact:</strong></p>
+  <ol>
+    <li><strong>Expand to a multi-page site</strong> — create dedicated service pages, case studies, and a blog to unlock keyword rankings across dozens of terms.</li>
+    <li><strong>Launch a content strategy</strong> — competitors like Enozom and LoadServ are winning with blogs, case studies, and technology pages. 2Code has none.</li>
+    <li><strong>Fix technical gaps</strong> — add a comprehensive sitemap, optimize Core Web Vitals (font loading, JS bundles), and add image optimization.</li>
+  </ol>
+  <p><strong>Overall assessment:</strong> <em>Strong brand foundation, but needs structural expansion to compete for organic traffic.</em></p>
+</div>
+
+<div class="score-row">
+  <div class="score-card"><div class="num green">A-</div><div class="label">On-Page SEO<br>(single page)</div></div>
+  <div class="score-card"><div class="num red">D</div><div class="label">Content Depth<br>& Coverage</div></div>
+  <div class="score-card"><div class="num amber">C+</div><div class="label">Technical<br>SEO</div></div>
+  <div class="score-card"><div class="num red">D-</div><div class="label">Competitive<br>Position</div></div>
+</div>
+
+<!-- ======== KEYWORD OPPORTUNITIES ======== -->
+<h2>2. Keyword Opportunity Table</h2>
+<p>Based on competitive research, service alignment, and search intent analysis, these are the top keyword opportunities for 2Code. Difficulty and opportunity are estimated from SERP analysis (no SEO tool connected — for precise volume and difficulty data, connect Ahrefs or Semrush via MCP).</p>
+
+<table>
+  <thead>
+    <tr><th>Keyword</th><th>Est. Difficulty</th><th>Opportunity</th><th>Current Ranking</th><th>Intent</th><th>Recommended Content</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>web development company Egypt</td><td><span class="badge badge-high">Hard</span></td><td><span class="badge badge-high">High</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>Dedicated homepage + service pages</td></tr>
+    <tr><td>landing page design agency Egypt</td><td><span class="badge badge-medium">Moderate</span></td><td><span class="badge badge-high">High</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>Landing page service page</td></tr>
+    <tr><td>custom software development Egypt</td><td><span class="badge badge-high">Hard</span></td><td><span class="badge badge-high">High</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>Custom software service page</td></tr>
+    <tr><td>e-commerce development Egypt</td><td><span class="badge badge-medium">Moderate</span></td><td><span class="badge badge-high">High</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>E-commerce service page</td></tr>
+    <tr><td>mobile app development company Egypt</td><td><span class="badge badge-high">Hard</span></td><td><span class="badge badge-high">High</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>Mobile app service page</td></tr>
+    <tr><td>hire React developer Egypt</td><td><span class="badge badge-low">Easy</span></td><td><span class="badge badge-high">High</span></td><td>Not ranking</td><td><span class="badge badge-trans">Transactional</span></td><td>Technology page (React)</td></tr>
+    <tr><td>Next.js development agency</td><td><span class="badge badge-low">Easy</span></td><td><span class="badge badge-high">High</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>Technology page (Next.js)</td></tr>
+    <tr><td>Flutter app development Egypt</td><td><span class="badge badge-low">Easy</span></td><td><span class="badge badge-medium">Medium</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>Technology page (Flutter)</td></tr>
+    <tr><td>Shopify developer Egypt</td><td><span class="badge badge-low">Easy</span></td><td><span class="badge badge-medium">Medium</span></td><td>Not ranking</td><td><span class="badge badge-trans">Transactional</span></td><td>E-commerce platform page</td></tr>
+    <tr><td>WooCommerce developer Egypt</td><td><span class="badge badge-low">Easy</span></td><td><span class="badge badge-medium">Medium</span></td><td>Not ranking</td><td><span class="badge badge-trans">Transactional</span></td><td>E-commerce platform page</td></tr>
+    <tr><td>best landing page examples 2026</td><td><span class="badge badge-medium">Moderate</span></td><td><span class="badge badge-medium">Medium</span></td><td>Not ranking</td><td><span class="badge badge-info">Informational</span></td><td>Blog post / gallery</td></tr>
+    <tr><td>how much does a landing page cost</td><td><span class="badge badge-low">Easy</span></td><td><span class="badge badge-high">High</span></td><td>Not ranking</td><td><span class="badge badge-info">Informational</span></td><td>Blog post / pricing guide</td></tr>
+    <tr><td>landing page vs website</td><td><span class="badge badge-medium">Moderate</span></td><td><span class="badge badge-medium">Medium</span></td><td>Not ranking</td><td><span class="badge badge-info">Informational</span></td><td>Blog post</td></tr>
+    <tr><td>software outsourcing Egypt</td><td><span class="badge badge-medium">Moderate</span></td><td><span class="badge badge-high">High</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>Service page / pillar content</td></tr>
+    <tr><td>UI/UX design agency MENA</td><td><span class="badge badge-low">Easy</span></td><td><span class="badge badge-medium">Medium</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>UI/UX service page</td></tr>
+    <tr><td>how to increase e-commerce conversions</td><td><span class="badge badge-medium">Moderate</span></td><td><span class="badge badge-medium">Medium</span></td><td>Not ranking</td><td><span class="badge badge-info">Informational</span></td><td>Blog post / guide</td></tr>
+    <tr><td>web development agency Middle East</td><td><span class="badge badge-medium">Moderate</span></td><td><span class="badge badge-medium">Medium</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>About/Company page</td></tr>
+    <tr><td>.NET development company Egypt</td><td><span class="badge badge-low">Easy</span></td><td><span class="badge badge-medium">Medium</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>Technology page (.NET)</td></tr>
+    <tr><td>conversion rate optimization agency</td><td><span class="badge badge-high">Hard</span></td><td><span class="badge badge-medium">Medium</span></td><td>Not ranking</td><td><span class="badge badge-comm">Commercial</span></td><td>CRO service page</td></tr>
+    <tr><td>cost to build a mobile app in Egypt</td><td><span class="badge badge-low">Easy</span></td><td><span class="badge badge-high">High</span></td><td>Not ranking</td><td><span class="badge badge-info">Informational</span></td><td>Blog post / pricing guide</td></tr>
+  </tbody>
+</table>
+
+<!-- ======== ON-PAGE ISSUES ======== -->
+<h2>3. On-Page SEO Issues</h2>
+
+<table>
+  <thead>
+    <tr><th>Page / Element</th><th>Issue</th><th>Severity</th><th>Recommended Fix</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Site architecture</td><td>Entire site is a single page — no crawlable service, portfolio, or blog pages</td><td><span class="badge badge-critical">Critical</span></td><td>Create individual pages for each service, case studies, blog, about, and contact</td></tr>
+    <tr><td>Homepage URL</td><td>Canonical points to 2code.agency but site is hosted on vercel.app subdomain</td><td><span class="badge badge-critical">Critical</span></td><td>Deploy to the custom domain 2code.agency and ensure consistent canonical URLs</td></tr>
+    <tr><td>Internal linking</td><td>Zero internal links — all nav links are same-page anchors (#services, #process, etc.)</td><td><span class="badge badge-critical">Critical</span></td><td>Build a multi-page structure with descriptive anchor text linking between pages</td></tr>
+    <tr><td>Title tag</td><td>Good (57 chars, includes keywords), but could be stronger on the CTA</td><td><span class="badge badge-low">Low</span></td><td>Consider: "2Code — Landing Pages, E-Commerce & Custom Software Agency | Egypt"</td></tr>
+    <tr><td>Meta description</td><td>Good (136 chars), mentions key services and geography</td><td><span class="badge badge-low">Low</span></td><td>Add a clearer CTA: "…Get a free consultation today."</td></tr>
+    <tr><td>H1 tag</td><td>"We Build Things That Convert." — creative but lacks target keywords</td><td><span class="badge badge-medium">Medium</span></td><td>Add a keyword-rich sub-heading like "Web Development & Custom Software Agency in Egypt"</td></tr>
+    <tr><td>H2 tags</td><td>Poetic but not keyword-optimized ("Every Pixel Earns Its Place")</td><td><span class="badge badge-medium">Medium</span></td><td>Balance brand voice with keywords: "Landing Pages That Convert" instead of "Every Pixel Earns Its Place"</td></tr>
+    <tr><td>Image alt text</td><td>Minimal alt text on mockup graphics; logo uses PNG without alt</td><td><span class="badge badge-medium">Medium</span></td><td>Add descriptive alt text to all images including portfolio mockups</td></tr>
+    <tr><td>Footer links</td><td>Blog, About, Careers pages listed in footer but do not exist as separate pages</td><td><span class="badge badge-high">High</span></td><td>Either create these pages or remove the dead links</td></tr>
+    <tr><td>FAQ section</td><td>Great FAQPage schema, but only 6 questions — competitors have 10+</td><td><span class="badge badge-low">Low</span></td><td>Expand FAQ to 10-15 questions covering pricing, timelines, tech stack, and process</td></tr>
+  </tbody>
+</table>
+
+<!-- ======== CONTENT GAP ANALYSIS ======== -->
+<h2>4. Content Gap Analysis</h2>
+<p>Compared against LoadServ, Enozom, and other leading Egyptian agencies, here are the content areas where 2Code has zero coverage:</p>
+
+<table>
+  <thead>
+    <tr><th>Topic / Keyword Gap</th><th>Why It Matters</th><th>Recommended Format</th><th>Priority</th><th>Effort</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Individual service pages (Landing Pages, E-Commerce, Custom Software, Mobile Apps, UI/UX)</td><td>Competitors have 5-8 dedicated service pages ranking for "[service] Egypt" keywords</td><td>Service landing pages with case studies</td><td><span class="badge badge-high">High</span></td><td>Substantial (1-2 weeks)</td></tr>
+    <tr><td>Case studies / portfolio detail pages</td><td>Enozom has named case studies (Couryah, Day Off); LoadServ shows 30+ projects. 2Code has zero crawlable examples.</td><td>Individual case study pages with metrics, screenshots, and tech stack</td><td><span class="badge badge-high">High</span></td><td>Substantial (ongoing)</td></tr>
+    <tr><td>Blog / resource hub</td><td>Footer links to a blog that doesn't exist. Enozom publishes "Top 10" articles that rank on page 1. Zero informational content = zero top-of-funnel traffic.</td><td>Blog with educational articles, guides, and industry insights</td><td><span class="badge badge-high">High</span></td><td>Substantial (ongoing)</td></tr>
+    <tr><td>Technology-specific pages (React, Next.js, .NET, Flutter, Node.js)</td><td>Enozom has dedicated technology pages. These target long-tail "hire [tech] developer Egypt" keywords with low competition.</td><td>Technology landing pages</td><td><span class="badge badge-medium">Medium</span></td><td>Moderate (1 day each)</td></tr>
+    <tr><td>Pricing / cost guides</td><td>"How much does a landing page cost" and "cost to build a mobile app" are high-intent, low-competition keywords with no authoritative Egypt-specific content.</td><td>Pillar blog posts with pricing ranges</td><td><span class="badge badge-medium">Medium</span></td><td>Moderate (half day each)</td></tr>
+    <tr><td>Comparison pages</td><td>"Shopify vs WooCommerce Egypt", "React vs Flutter for mobile apps" — these buyer-journey consideration pages drive qualified traffic.</td><td>Blog posts / comparison guides</td><td><span class="badge badge-medium">Medium</span></td><td>Moderate (half day each)</td></tr>
+    <tr><td>About / team page</td><td>Builds E-E-A-T signals (Experience, Expertise, Authority, Trust). Competitors showcase team size and years of experience.</td><td>About page with team bios and company story</td><td><span class="badge badge-medium">Medium</span></td><td>Quick win (2-3 hours)</td></tr>
+    <tr><td>Industry-specific pages</td><td>2Code mentions "12+ industries served" — but no content targets specific verticals like fintech, healthcare, or real estate.</td><td>Industry landing pages</td><td><span class="badge badge-low">Low</span></td><td>Moderate (1 day each)</td></tr>
+    <tr><td>Glossary / educational content</td><td>Terms like "What is a landing page", "What is CRO" target People Also Ask and featured snippets.</td><td>Glossary pages or blog series</td><td><span class="badge badge-low">Low</span></td><td>Quick win (1-2 hours each)</td></tr>
+  </tbody>
+</table>
+
+<!-- ======== TECHNICAL SEO ======== -->
+<h2>5. Technical SEO Checklist</h2>
+
+<table>
+  <thead>
+    <tr><th>Check</th><th>Status</th><th>Details</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>HTTPS</td><td><span class="badge badge-pass">Pass</span></td><td>Site served over HTTPS via Vercel. No mixed content detected.</td></tr>
+    <tr><td>Canonical tag</td><td><span class="badge badge-warn">Warning</span></td><td>Canonical points to <code>https://2code.agency</code> but site is hosted at <code>2code-kappa.vercel.app</code>. This mismatch can confuse Google.</td></tr>
+    <tr><td>Meta viewport</td><td><span class="badge badge-pass">Pass</span></td><td><code>width=device-width, initial-scale=1</code> — properly configured.</td></tr>
+    <tr><td>Open Graph tags</td><td><span class="badge badge-pass">Pass</span></td><td>Full OG set present (title, description, URL, type, site_name).</td></tr>
+    <tr><td>Twitter Card</td><td><span class="badge badge-pass">Pass</span></td><td><code>summary_large_image</code> with title and description.</td></tr>
+    <tr><td>Structured data</td><td><span class="badge badge-pass">Pass</span></td><td>JSON-LD schemas for Organization, LocalBusiness, and FAQPage — well implemented.</td></tr>
+    <tr><td>Geo meta tags</td><td><span class="badge badge-pass">Pass</span></td><td><code>geo.region=EG</code>, <code>geo.placename=Giza, Egypt</code> — good for local SEO.</td></tr>
+    <tr><td>robots.txt</td><td><span class="badge badge-pass">Pass</span></td><td>Present. <code>Allow: /</code> with sitemap reference.</td></tr>
+    <tr><td>XML Sitemap</td><td><span class="badge badge-warn">Warning</span></td><td>Exists but contains only 1 URL (the homepage). Must expand as pages are added.</td></tr>
+    <tr><td>Semantic HTML</td><td><span class="badge badge-warn">Warning</span></td><td>Uses <code>&lt;section&gt;</code> elements but missing <code>&lt;main&gt;</code> landmark. No <code>role="main"</code>.</td></tr>
+    <tr><td>Heading hierarchy</td><td><span class="badge badge-pass">Pass</span></td><td>Single H1, logical H2→H3 structure throughout.</td></tr>
+    <tr><td>Page speed — JS bundles</td><td><span class="badge badge-warn">Warning</span></td><td>Multiple Next.js async chunks loaded. No visible code-splitting beyond framework default.</td></tr>
+    <tr><td>Page speed — fonts</td><td><span class="badge badge-warn">Warning</span></td><td>3 font families loaded (Playfair Display, DM Sans, Cormorant Garamond) with multiple weights. Consider reducing to 2 families.</td></tr>
+    <tr><td>Page speed — images</td><td><span class="badge badge-fail">Fail</span></td><td>Logo served as PNG. No WebP/AVIF optimization. No <code>loading="lazy"</code> attributes detected.</td></tr>
+    <tr><td>Page speed — preloading</td><td><span class="badge badge-fail">Fail</span></td><td>No <code>&lt;link rel="preload"&gt;</code> for critical fonts or above-the-fold assets.</td></tr>
+    <tr><td>Internal linking</td><td><span class="badge badge-fail">Fail</span></td><td>Zero crawlable internal links — all navigation uses anchor fragments (#).</td></tr>
+    <tr><td>Broken links</td><td><span class="badge badge-warn">Warning</span></td><td>Footer lists Blog, About, and Careers pages — if these return 404, it signals poor quality to crawlers.</td></tr>
+    <tr><td>Mobile-friendliness</td><td><span class="badge badge-pass">Pass</span></td><td>Viewport tag present, responsive design indicated by CSS patterns.</td></tr>
+    <tr><td>Accessibility — ARIA</td><td><span class="badge badge-warn">Warning</span></td><td>WhatsApp link has aria-label, but most interactive elements lack ARIA landmarks.</td></tr>
+    <tr><td>Accessibility — alt text</td><td><span class="badge badge-warn">Warning</span></td><td>Minimal alt text on decorative/mockup images.</td></tr>
+  </tbody>
+</table>
+
+<!-- ======== COMPETITOR COMPARISON ======== -->
+<h2>6. Competitor SEO Comparison</h2>
+<p>Benchmarked against two identified competitors in the Egyptian web/software development space:</p>
+
+<table>
+  <thead>
+    <tr><th>Dimension</th><th>2Code</th><th>Enozom</th><th>LoadServ</th><th>Winner</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Indexable pages</td><td>1 (homepage only)</td><td>50+ (services, tech, blog, case studies)</td><td>~10-15 (services, portfolio)</td><td><strong>Enozom</strong></td></tr>
+    <tr><td>Blog / content hub</td><td>None</td><td>Active blog with ranked articles</td><td>None visible</td><td><strong>Enozom</strong></td></tr>
+    <tr><td>Case studies</td><td>0 (names listed only)</td><td>3+ detailed case studies</td><td>30+ portfolio items</td><td><strong>LoadServ</strong></td></tr>
+    <tr><td>Technology pages</td><td>None</td><td>.NET, Angular, iOS, Laravel, Node.js pages</td><td>None</td><td><strong>Enozom</strong></td></tr>
+    <tr><td>Structured data</td><td>Organization + LocalBusiness + FAQPage</td><td>Basic Organization</td><td>Basic</td><td><strong>2Code</strong></td></tr>
+    <tr><td>Meta tags quality</td><td>Excellent (title, desc, OG, Twitter, geo)</td><td>Good</td><td>Good</td><td><strong>2Code</strong></td></tr>
+    <tr><td>Brand / design quality</td><td>Premium, polished</td><td>Professional</td><td>Standard</td><td><strong>2Code</strong></td></tr>
+    <tr><td>FAQ / knowledge content</td><td>6 FAQs with schema</td><td>Blog covers common questions</td><td>FAQ section</td><td><strong>Tie</strong></td></tr>
+    <tr><td>Experience signals (E-E-A-T)</td><td>"50+ projects, 3x conversion lift"</td><td>"13+ years, 146+ projects, 80+ clients"</td><td>"15+ years experience"</td><td><strong>Enozom</strong></td></tr>
+    <tr><td>Social proof / testimonials</td><td>1 testimonial</td><td>Multiple with company names</td><td>24+ reviews</td><td><strong>LoadServ</strong></td></tr>
+    <tr><td>Local SEO</td><td>Geo tags + LocalBusiness schema</td><td>Egypt-targeted pages</td><td>Cairo office mentioned</td><td><strong>2Code</strong></td></tr>
+  </tbody>
+</table>
+
+<!-- ======== ACTION PLAN ======== -->
+<h2>7. Prioritized Action Plan</h2>
+
+<div class="action-block" style="border-left: 4px solid #16a34a;">
+  <h4>⚡ Quick Wins — Do This Week</h4>
+  <table>
+    <thead><tr><th>Action</th><th>Impact</th><th>Effort</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Deploy to custom domain <code>2code.agency</code></td><td><span class="badge badge-high">High</span></td><td>1 hour</td><td>Resolve canonical mismatch. Set up 301 redirect from vercel.app subdomain.</td></tr>
+      <tr><td>Fix footer dead links</td><td><span class="badge badge-medium">Medium</span></td><td>30 min</td><td>Remove Blog, About, Careers links from footer until those pages exist, or create placeholder pages.</td></tr>
+      <tr><td>Add <code>&lt;main&gt;</code> landmark and ARIA roles</td><td><span class="badge badge-low">Low</span></td><td>30 min</td><td>Improves accessibility score and semantic structure.</td></tr>
+      <tr><td>Add <code>loading="lazy"</code> to below-fold images</td><td><span class="badge badge-medium">Medium</span></td><td>30 min</td><td>Improves LCP and page load time.</td></tr>
+      <tr><td>Convert logo to SVG or WebP</td><td><span class="badge badge-low">Low</span></td><td>30 min</td><td>Reduces file size, improves rendering.</td></tr>
+      <tr><td>Add <code>&lt;link rel="preload"&gt;</code> for hero font</td><td><span class="badge badge-medium">Medium</span></td><td>15 min</td><td>Prevents FOUT (flash of unstyled text) on first load.</td></tr>
+      <tr><td>Add descriptive alt text to all images</td><td><span class="badge badge-medium">Medium</span></td><td>1 hour</td><td>Include keywords where natural (e.g., "e-commerce website mockup for Harvest & Co").</td></tr>
+      <tr><td>Expand FAQ to 12-15 questions</td><td><span class="badge badge-medium">Medium</span></td><td>1-2 hours</td><td>Add questions about industries served, team size, communication process, and examples.</td></tr>
+      <tr><td>Add more testimonials</td><td><span class="badge badge-medium">Medium</span></td><td>1-2 hours</td><td>LoadServ has 24+ reviews. Add at least 3-5 client testimonials with company names and roles.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="action-block" style="border-left: 4px solid #2d2d5e;">
+  <h4>🏗️ Strategic Investments — Plan for This Quarter</h4>
+  <table>
+    <thead><tr><th>Action</th><th>Impact</th><th>Effort</th><th>Dependencies</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Build multi-page site architecture</strong><br>Create 5 service pages, About, Contact, Portfolio, and Blog index</td><td><span class="badge badge-high">High</span></td><td>2-3 weeks</td><td>Requires content writing for each page. Update sitemap.xml after launch.</td></tr>
+      <tr><td><strong>Create 3-5 detailed case studies</strong><br>Feature FinanceFlow, Harvest & Co, etc. with problem → solution → results format</td><td><span class="badge badge-high">High</span></td><td>1-2 weeks</td><td>Requires client approval for metrics and screenshots.</td></tr>
+      <tr><td><strong>Launch a blog with 8-10 foundational articles</strong><br>Cover: cost guides, comparison posts, how-tos, and industry insights</td><td><span class="badge badge-high">High</span></td><td>3-4 weeks</td><td>Multi-page site must be live first. Target 2 posts/month thereafter.</td></tr>
+      <tr><td><strong>Build technology-specific landing pages</strong><br>React, Next.js, .NET, Flutter, Node.js — targeting "hire [tech] developer Egypt" keywords</td><td><span class="badge badge-medium">Medium</span></td><td>1-2 weeks</td><td>Requires multi-page architecture.</td></tr>
+      <tr><td><strong>Develop a topic cluster: "Software Development in Egypt"</strong><br>Pillar page + 8-10 supporting articles covering cost, process, outsourcing, and tech stacks</td><td><span class="badge badge-high">High</span></td><td>4-6 weeks</td><td>Blog infrastructure must be ready.</td></tr>
+      <tr><td><strong>List on agency directories</strong><br>Clutch.co, DesignRush, GoodFirms, Sortlist — build backlinks and referral traffic</td><td><span class="badge badge-medium">Medium</span></td><td>1 week</td><td>Portfolio and case studies should be live first for stronger profiles.</td></tr>
+      <tr><td><strong>Implement Google Search Console &amp; Analytics</strong><br>Track indexation, keyword rankings, and organic traffic from day one</td><td><span class="badge badge-high">High</span></td><td>1 hour</td><td>Custom domain must be active.</td></tr>
+      <tr><td><strong>Reduce font families from 3 to 2</strong><br>Drop Cormorant Garamond or consolidate to reduce load weight</td><td><span class="badge badge-low">Low</span></td><td>2 hours</td><td>Design decision required.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer class="report-footer">
+  SEO Audit Report for 2Code Agency &nbsp;·&nbsp; Generated April 3, 2026 &nbsp;·&nbsp; For precise keyword volumes and ranking tracking, connect an SEO tool (Ahrefs, Semrush) via MCP.
+</footer>
+
+</div>
+</body>
+</html>

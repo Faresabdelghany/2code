@@ -7,7 +7,14 @@
       "Bash(brew list:*)",
       "Bash(brew install:*)",
       "Bash(mkdir -p /tmp/video-frames)",
-      "Bash(ffmpeg -y -i /Users/skuser/Desktop/Creative-Spark-Design-Mar-29-10-19-29.mp4 -vf \"select=eq\\(n\\\\,0\\)+eq\\(n\\\\,90\\)+eq\\(n\\\\,180\\)+eq\\(n\\\\,300\\)+eq\\(n\\\\,450\\)+eq\\(n\\\\,600\\)\" -vsync vfr /tmp/video-frames/frame_%02d.png)"
+      "Bash(ffmpeg -y -i /Users/skuser/Desktop/Creative-Spark-Design-Mar-29-10-19-29.mp4 -vf \"select=eq\\(n\\\\,0\\)+eq\\(n\\\\,90\\)+eq\\(n\\\\,180\\)+eq\\(n\\\\,300\\)+eq\\(n\\\\,450\\)+eq\\(n\\\\,600\\)\" -vsync vfr /tmp/video-frames/frame_%02d.png)",
+      "Bash(sips:*)",
+      "Bash(gh auth:*)",
+      "Bash(git --version)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo:*)",
+      "Bash(vercel --version)"
     ]
   }
 }
