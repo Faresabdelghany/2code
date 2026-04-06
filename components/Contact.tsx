@@ -3,13 +3,19 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import type { ContactContent } from "@/lib/types/cms";
 
-export default function Contact() {
+interface ContactProps {
+  content?: ContactContent;
+}
+
+export default function Contact({ content }: ContactProps) {
   const [form, setForm] = useState({ name: "", email: "", projectType: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; email?: string; submit?: string }>({});
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const newErrors: { name?: string; email?: string } = {};
     if (!form.name.trim()) newErrors.name = "Name is required";
@@ -21,7 +27,29 @@ export default function Contact() {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setSubmitting(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: [form.projectType, form.message].filter(Boolean).join("\n\n"),
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setErrors({ submit: data.error || "Failed to submit. Please try again." });
+        setSubmitting(false);
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setErrors({ submit: "Network error. Please try again." });
+      setSubmitting(false);
+    }
   }
 
   const inputStyle: React.CSSProperties = {
@@ -104,9 +132,7 @@ export default function Contact() {
               marginBottom: "1.5rem",
             }}
           >
-            Got a Project?
-            <br />
-            <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Let&apos;s Talk.</em>
+            {content?.heading || <>Got a Project?<br /><em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Let&apos;s Talk.</em></>}
           </h2>
           <p
             className="rv rv-d2"
@@ -119,7 +145,7 @@ export default function Contact() {
               maxWidth: 400,
             }}
           >
-            Tell us about your project and we&apos;ll get back to you within 24 hours.
+            {content?.subtext || "Tell us about your project and we'll get back to you within 24 hours."}
           </p>
         </div>
 
@@ -237,11 +263,16 @@ export default function Contact() {
                   el.style.color = "var(--color-cr)";
                 }}
               >
-                Send My Brief
+                {submitting ? "Sending..." : (content?.button_text || "Send My Brief")}
                 <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
+              {errors.submit && (
+                <p role="alert" style={{ color: "var(--color-accent-red, #e05246)", fontSize: "0.75rem", marginTop: "0.5rem" }}>
+                  {errors.submit}
+                </p>
+              )}
               <p
                 style={{
                   fontSize: "0.72rem",
@@ -295,10 +326,10 @@ export default function Contact() {
                   marginBottom: "0.8rem",
                 }}
               >
-                Message Sent
+                {content?.success_title || "Message Sent"}
               </h3>
               <p style={{ fontSize: "0.88rem", color: "var(--color-cd)", lineHeight: 1.6 }}>
-                Thank you. We&apos;ll get back to you within 24 hours.
+                {content?.success_message || "Thank you. We'll get back to you within 24 hours."}
               </p>
             </motion.div>
           )}

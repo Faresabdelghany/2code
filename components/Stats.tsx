@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { StatsContent } from "@/lib/types/cms";
 
 interface Stat {
   target: number;
@@ -11,7 +12,7 @@ interface Stat {
   note?: string;
 }
 
-const stats: Stat[] = [
+const defaultStats: Stat[] = [
   { target: 50, suffix: "+", label: "Projects Delivered", note: "since 2023 across Egypt & the Middle East" },
   { target: 3, suffix: "x", label: "Avg. Conversion Lift", decimal: true, note: "across 15+ landing page & e-commerce projects" },
   { target: 98, suffix: "%", label: "Client Satisfaction", note: "based on post-project client surveys" },
@@ -106,7 +107,21 @@ function StatItem({ stat, delay }: { stat: Stat; delay: number }) {
   );
 }
 
-export default function Stats() {
+interface StatsProps {
+  content?: StatsContent;
+}
+
+export default function Stats({ content }: StatsProps) {
+  const stats: Stat[] = content?.items?.length
+    ? content.items.map((item) => ({
+        target: item.value,
+        suffix: item.suffix,
+        label: item.label,
+        decimal: item.value % 1 !== 0 || item.suffix === "x",
+        note: item.note || undefined,
+      }))
+    : defaultStats;
+
   return (
     <div className="stats-grid" data-sec="7">
       {stats.map((stat, i) => (

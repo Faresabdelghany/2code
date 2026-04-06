@@ -1,7 +1,9 @@
 "use client";
 
 // components/Trust.tsx
-const logos = [
+import type { TrustContent } from "@/lib/types/cms";
+
+const defaultLogos = [
   "FinanceFlow",
   "Meridian Group",
   "NeuralDesk",
@@ -10,7 +12,17 @@ const logos = [
   "ONYX Digital",
 ];
 
-export default function Trust() {
+const defaultHeader = "Trusted by 50+ companies across Egypt, UAE & Saudi Arabia";
+
+interface TrustProps {
+  content?: TrustContent;
+}
+
+export default function Trust({ content }: TrustProps) {
+  const header = content?.header || defaultHeader;
+  const logos = content?.clients?.length
+    ? content.clients.map((c) => c.name)
+    : defaultLogos;
   return (
     <div
       className="rv"
@@ -30,7 +42,7 @@ export default function Trust() {
           opacity: 0.5,
         }}
       >
-        Trusted by 50+ companies across Egypt, UAE &amp; Saudi Arabia
+        {header}
       </p>
       <div
         style={{

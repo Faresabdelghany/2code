@@ -3,10 +3,11 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import type { TestimonialsContent } from "@/lib/types/cms";
 
-const testimonials = [
+const defaultTestimonials = [
   {
-    text: "2Code didn't just build our platform — they redefined what we thought was possible. The attention to craft is unmatched.",
+    text: "2Code didn't just build our platform \u2014 they redefined what we thought was possible. The attention to craft is unmatched.",
     author: "Sarah Mitchell",
     role: "CEO, FinanceFlow",
   },
@@ -27,7 +28,18 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  content?: TestimonialsContent;
+}
+
+export default function Testimonials({ content }: TestimonialsProps) {
+  const testimonials = content?.items?.length
+    ? content.items.map((item) => ({
+        text: item.quote,
+        author: item.name,
+        role: item.role,
+      }))
+    : defaultTestimonials;
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
 

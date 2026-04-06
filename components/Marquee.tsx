@@ -1,5 +1,7 @@
 // components/Marquee.tsx
-const items = [
+import type { MarqueeContent } from "@/lib/types/cms";
+
+const defaultItems = [
   { text: "Landing Pages", italic: false },
   { text: "Web Apps", italic: true },
   { text: "Mobile Apps", italic: false },
@@ -8,9 +10,16 @@ const items = [
   { text: "Brand Identity", italic: true },
 ];
 
-const doubled = [...items, ...items];
+interface MarqueeProps {
+  content?: MarqueeContent;
+}
 
-export default function Marquee() {
+export default function Marquee({ content }: MarqueeProps) {
+  const items = content?.tags?.length
+    ? content.tags.map((tag, i) => ({ text: tag, italic: i % 2 === 1 }))
+    : defaultItems;
+
+  const doubled = [...items, ...items];
   return (
     <div
       aria-hidden="true"

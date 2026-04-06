@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, animate, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import type { HeroContent } from "@/lib/types/cms";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 const SPRING = { type: "spring" as const, stiffness: 200, damping: 26 };
@@ -72,7 +73,11 @@ function handleAnchor(href: string) {
   };
 }
 
-export default function Hero() {
+interface HeroProps {
+  content?: HeroContent;
+}
+
+export default function Hero({ content }: HeroProps) {
   const [impacted, setImpacted] = useState(false);
   const impactedRef = useRef(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -156,7 +161,7 @@ export default function Hero() {
             marginBottom: "2rem",
           }}
         >
-          50+ Projects Delivered &nbsp;·&nbsp; Up to 3x Conversion Lift
+          {content?.eyebrow || "50+ Projects Delivered \u00a0\u00b7\u00a0 Up to 3x Conversion Lift"}
         </motion.p>
 
         {/* Headline */}
@@ -219,7 +224,7 @@ export default function Hero() {
             marginBottom: "3rem",
           }}
         >
-          A web development agency in Egypt building landing pages, e-commerce stores, custom software &amp; mobile apps — built to perform, not just impress.
+          {content?.subheadline || "A web development agency in Egypt building landing pages, e-commerce stores, custom software & mobile apps \u2014 built to perform, not just impress."}
         </motion.p>
 
         {/* CTAs */}
@@ -234,8 +239,8 @@ export default function Hero() {
           }}
         >
           <a
-            href="#contact"
-            onClick={handleAnchor("#contact")}
+            href={content?.cta_primary?.url || "#contact"}
+            onClick={handleAnchor(content?.cta_primary?.url || "#contact")}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -253,15 +258,15 @@ export default function Hero() {
             onMouseEnter={(e) => (e.currentTarget.style.background = "var(--color-tn)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "var(--color-cr)")}
           >
-            Get a Free Consultation
+            {content?.cta_primary?.text || "Get a Free Consultation"}
             <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
 
           <a
-            href="#services"
-            onClick={handleAnchor("#services")}
+            href={content?.cta_secondary?.url || "#services"}
+            onClick={handleAnchor(content?.cta_secondary?.url || "#services")}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -279,7 +284,7 @@ export default function Hero() {
             onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(240,235,227,.7)")}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(240,235,227,.25)")}
           >
-            See What We Build
+            {content?.cta_secondary?.text || "See What We Build"}
           </a>
         </motion.div>
       </div>
