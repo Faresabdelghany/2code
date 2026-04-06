@@ -6,6 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 import type { Section, SectionType } from "@/lib/types/cms";
 
 // ── Editor imports (created in the next task) ────────────────────────────────
+import PreviewFrame from "@/components/admin/PreviewFrame";
 import HeroEditor from "@/components/admin/editors/HeroEditor";
 import StatementEditor from "@/components/admin/editors/StatementEditor";
 import MarqueeEditor from "@/components/admin/editors/MarqueeEditor";
@@ -101,6 +102,7 @@ export default function SectionEditor({ section }: SectionEditorProps) {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [previousContent, setPreviousContent] = useState(section.previous_content);
+  const [showPreview, setShowPreview] = useState(true);
 
   const EditorComponent = EDITOR_MAP[section.type];
 
@@ -151,54 +153,75 @@ export default function SectionEditor({ section }: SectionEditorProps) {
   }
 
   return (
-    <div style={wrapperStyle}>
-      <EditorComponent content={content} onChange={setContent} />
+    <div style={{ display: "flex", gap: 24, minHeight: "70vh" }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={wrapperStyle}>
+          <EditorComponent content={content} onChange={setContent} />
 
-      <div style={actionsStyle}>
-        <button
-          onClick={handleSave}
-          disabled={saving}
-          style={saveButtonStyle(saving)}
-        >
-          {saving ? "Saving…" : "Save"}
-        </button>
+          <div style={actionsStyle}>
+            <button
+              onClick={handleSave}
+              disabled={saving}
+              style={saveButtonStyle(saving)}
+            >
+              {saving ? "Saving…" : "Save"}
+            </button>
 
-        {previousContent != null && (
-          <button
-            onClick={handleRevert}
-            style={{
-              padding: "10px 24px",
-              backgroundColor: "transparent",
-              color: "#c4a96a",
-              border: "1px solid #c4a96a",
-              borderRadius: 6,
-              fontSize: "0.875rem",
-              fontWeight: 500,
-              fontFamily: "var(--font-sans)",
-              cursor: "pointer",
-            }}
-          >
-            Revert to Previous
-          </button>
-        )}
+            {previousContent != null && (
+              <button
+                onClick={handleRevert}
+                style={{
+                  padding: "10px 24px",
+                  backgroundColor: "transparent",
+                  color: "#c4a96a",
+                  border: "1px solid #c4a96a",
+                  borderRadius: 6,
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  fontFamily: "var(--font-sans)",
+                  cursor: "pointer",
+                }}
+              >
+                Revert to Previous
+              </button>
+            )}
 
-        <button
-          onClick={() => router.back()}
-          style={cancelButtonStyle}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.color = "#f0ebe3";
-            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.2)";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.color = "#9e9789";
-            (e.currentTarget as HTMLButtonElement).style.borderColor = "#2a2825";
-          }}
-        >
-          Cancel
-        </button>
+            <button
+              onClick={() => router.back()}
+              style={cancelButtonStyle}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.color = "#f0ebe3";
+                (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.2)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.color = "#9e9789";
+                (e.currentTarget as HTMLButtonElement).style.borderColor = "#2a2825";
+              }}
+            >
+              Cancel
+            </button>
 
-        {saved && <span style={savedBadgeStyle}>Saved!</span>}
+            {saved && <span style={savedBadgeStyle}>Saved!</span>}
+          </div>
+        </div>
       </div>
+      {showPreview && (
+        <div style={{ flex: 1, minWidth: 0, position: "sticky", top: 32, alignSelf: "flex-start", height: "calc(100vh - 64px)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+            <span style={{ color: "#9e9789", fontSize: 13 }}>Live Preview</span>
+            <button onClick={() => setShowPreview(false)} style={{ background: "none", border: "none", color: "#9e9789", cursor: "pointer", fontSize: 12 }}>Hide</button>
+          </div>
+          <PreviewFrame sectionId={section.id} sectionType={section.type} content={content} />
+        </div>
+      )}
+      {!showPreview && (
+        <button
+          onClick={() => setShowPreview(true)}
+          style={{ position: "fixed", right: 24, bottom: 24, padding: "8px 16px", borderRadius: 6, background: "#1c1a17", border: "1px solid #2a2825", color: "#9e9789", fontSize: 13, cursor: "pointer", zIndex: 50 }}
+        >
+          Show Preview
+        </button>
+      )}
     </div>
   );
 }
