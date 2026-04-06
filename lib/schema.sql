@@ -191,3 +191,7 @@ create policy "media_bucket_auth_update"
 create policy "media_bucket_auth_delete"
   on storage.objects for delete
   using (bucket_id = 'media' and auth.role() = 'authenticated');
+
+-- Undo/revert support
+ALTER TABLE sections ADD COLUMN IF NOT EXISTS previous_content jsonb DEFAULT NULL;
+ALTER TABLE settings ADD COLUMN IF NOT EXISTS previous_value jsonb DEFAULT NULL;
