@@ -35,6 +35,7 @@ create table if not exists sections (
 );
 
 create index if not exists sections_page_id_idx on sections(page_id);
+alter table sections add constraint sections_page_id_sort_order_key unique (page_id, sort_order);
 
 -- media
 create table if not exists media (
