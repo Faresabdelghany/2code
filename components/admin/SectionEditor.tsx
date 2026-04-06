@@ -100,6 +100,7 @@ export default function SectionEditor({ section }: SectionEditorProps) {
   const [content, setContent] = useState(section.content);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [previousContent, setPreviousContent] = useState(section.previous_content);
 
   const EditorComponent = EDITOR_MAP[section.type];
 
@@ -108,16 +109,45 @@ export default function SectionEditor({ section }: SectionEditorProps) {
     setSaved(false);
 
     const supabase = createClient();
+
+    // Read current content before overwriting (for revert)
+    const { data: current } = await supabase
+      .from("sections")
+      .select("content")
+      .eq("id", section.id)
+      .single();
+
     await supabase
       .from("sections")
-      .update({ content, updated_at: new Date().toISOString() })
+      .update({
+        content,
+        previous_content: current?.content ?? null,
+        updated_at: new Date().toISOString(),
+      })
       .eq("id", section.id);
 
+    setPreviousContent(current?.content ?? null);
     setSaving(false);
     setSaved(true);
-
-    // Clear "Saved!" feedback after 2 seconds
     setTimeout(() => setSaved(false), 2000);
+  }
+
+  async function handleRevert() {
+    if (!previousContent) return;
+    if (!window.confirm("Are you sure? This will restore the last saved version.")) return;
+
+    const supabase = createClient();
+    await supabase
+      .from("sections")
+      .update({
+        content: previousContent,
+        previous_content: null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", section.id);
+
+    setContent(previousContent);
+    setPreviousContent(null);
   }
 
   return (
@@ -132,6 +162,25 @@ export default function SectionEditor({ section }: SectionEditorProps) {
         >
           {saving ? "Saving…" : "Save"}
         </button>
+
+        {previousContent != null && (
+          <button
+            onClick={handleRevert}
+            style={{
+              padding: "10px 24px",
+              backgroundColor: "transparent",
+              color: "#c4a96a",
+              border: "1px solid #c4a96a",
+              borderRadius: 6,
+              fontSize: "0.875rem",
+              fontWeight: 500,
+              fontFamily: "var(--font-sans)",
+              cursor: "pointer",
+            }}
+          >
+            Revert to Previous
+          </button>
+        )}
 
         <button
           onClick={() => router.back()}
