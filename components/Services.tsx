@@ -1,38 +1,51 @@
 // components/Services.tsx
 import ServiceCard from "./ServiceCard";
+import type { ServicesContent } from "@/lib/types/cms";
 
-const services = [
+const defaultServices = [
   {
     num: "01",
-    name: <>Landing Pages<br />& Web Design</>,
+    name: "Landing Pages & Web Design",
     description:
       "High-converting landing pages and marketing sites built with React and Next.js. We handle everything from wireframes to A/B testing — every element optimized for conversion, responsive across all devices.",
     tags: ["Conversion Optimization", "Responsive Design", "A/B Testing", "React"],
   },
   {
     num: "02",
-    name: <>E-Commerce<br />Solutions</>,
+    name: "E-Commerce Solutions",
     description:
       "E-commerce stores built on Shopify, WooCommerce, or fully custom platforms. From product catalogs to checkout flows and payment gateway integration — every interaction designed to drive revenue and reduce cart abandonment.",
     tags: ["Shopify", "WooCommerce", "Payment Gateways", "Conversion"],
   },
   {
     num: "03",
-    name: <>Custom Software<br />Development</>,
+    name: "Custom Software Development",
     description:
       "Custom software built to solve the problems templates can't. From internal tools to customer-facing platforms — engineered with .NET, Node.js, and cloud infrastructure on AWS and Azure for scale and security.",
     tags: ["Full-Stack", "Cloud Native", ".NET", "Node.js"],
   },
   {
     num: "04",
-    name: <>Mobile App<br />Development</>,
+    name: "Mobile App Development",
     description:
       "Native and cross-platform mobile apps built with Flutter and React Native for iOS and Android. Smooth performance, beautiful interfaces, and users who actually keep your app on their home screen.",
     tags: ["iOS & Android", "Flutter", "React Native", "Cross-Platform"],
   },
 ];
 
-export default function Services() {
+interface ServicesProps {
+  content?: ServicesContent;
+}
+
+export default function Services({ content }: ServicesProps) {
+  const services = content?.items?.length
+    ? content.items.map((item, i) => ({
+        num: String(i + 1).padStart(2, "0"),
+        name: item.title,
+        description: item.description,
+        tags: item.tags,
+      }))
+    : defaultServices;
   return (
     <section
       id="services"

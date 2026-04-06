@@ -4,8 +4,9 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
+import type { NavLink } from "@/lib/types/cms";
 
-const navLinks = [
+const defaultNavLinks = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "Testimonials", href: "#testimonials" },
@@ -13,7 +14,15 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  navLinks?: NavLink[];
+  ctaText?: string;
+}
+
+export default function Navbar({ navLinks: navLinksProp, ctaText }: NavbarProps) {
+  const navLinks = navLinksProp?.length
+    ? navLinksProp.map((l) => ({ label: l.text, href: l.url }))
+    : defaultNavLinks;
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -128,7 +137,7 @@ export default function Navbar() {
             el.style.borderColor = "var(--color-cd)";
           }}
         >
-          Get a Free Consultation
+          {ctaText || "Get a Free Consultation"}
         </a>
 
         {/* Hamburger */}

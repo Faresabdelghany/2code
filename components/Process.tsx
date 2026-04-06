@@ -1,5 +1,7 @@
 // components/Process.tsx
-const steps = [
+import type { ProcessContent } from "@/lib/types/cms";
+
+const defaultSteps = [
   {
     num: "01",
     title: "Discover",
@@ -22,7 +24,18 @@ const steps = [
   },
 ];
 
-export default function Process() {
+interface ProcessProps {
+  content?: ProcessContent;
+}
+
+export default function Process({ content }: ProcessProps) {
+  const steps = content?.items?.length
+    ? content.items.map((item, i) => ({
+        num: String(i + 1).padStart(2, "0"),
+        title: item.title,
+        desc: item.description,
+      }))
+    : defaultSteps;
   return (
     <section id="process" data-sec="6" style={{ padding: "10rem 6rem", background: "var(--color-dk)" }}>
       <div style={{ textAlign: "center", marginBottom: "6rem" }}>
