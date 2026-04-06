@@ -1,10 +1,9 @@
 "use client";
 
 import type { StatementContent } from "@/lib/types/cms";
+import RichTextField from "@/components/admin/RichTextField";
 
-const labelStyle: React.CSSProperties = { display: "block", color: "#9e9789", fontSize: 12, marginBottom: 6, textTransform: "uppercase" };
 const inputStyle: React.CSSProperties = { width: "100%", padding: "8px 12px", borderRadius: 6, border: "1px solid #2a2825", background: "#111110", color: "#f0ebe3", fontSize: 14, outline: "none" };
-const textareaStyle: React.CSSProperties = { ...inputStyle, minHeight: 80, resize: "vertical" as const };
 const fieldStyle: React.CSSProperties = { marginBottom: 16 };
 
 interface Props {
@@ -19,33 +18,14 @@ export default function StatementEditor({ content, onChange }: Props) {
 
   return (
     <div>
-      <div style={fieldStyle}>
-        <label style={labelStyle}>Title Line 1</label>
-        <input style={inputStyle} value={content.title_line1} onChange={(e) => update("title_line1", e.target.value)} />
-      </div>
+      <RichTextField label="Title Line 1" value={content.title_line1} onChange={(html) => update("title_line1", html)} />
+      <RichTextField label="Title Line 2" value={content.title_line2} onChange={(html) => update("title_line2", html)} />
+      <RichTextField label="Title Accent" value={content.title_accent} onChange={(html) => update("title_accent", html)} />
+      <RichTextField label="Body" value={content.body} onChange={(html) => update("body", html)} />
+      <RichTextField label="Proof Point" value={content.proof_point} onChange={(html) => update("proof_point", html)} />
 
       <div style={fieldStyle}>
-        <label style={labelStyle}>Title Line 2</label>
-        <input style={inputStyle} value={content.title_line2} onChange={(e) => update("title_line2", e.target.value)} />
-      </div>
-
-      <div style={fieldStyle}>
-        <label style={labelStyle}>Title Accent</label>
-        <input style={inputStyle} value={content.title_accent} onChange={(e) => update("title_accent", e.target.value)} />
-      </div>
-
-      <div style={fieldStyle}>
-        <label style={labelStyle}>Body</label>
-        <textarea style={textareaStyle} value={content.body} onChange={(e) => update("body", e.target.value)} />
-      </div>
-
-      <div style={fieldStyle}>
-        <label style={labelStyle}>Proof Point</label>
-        <input style={inputStyle} value={content.proof_point} onChange={(e) => update("proof_point", e.target.value)} />
-      </div>
-
-      <div style={fieldStyle}>
-        <label style={labelStyle}>Mockup Type</label>
+        <label style={{ display: "block", color: "#9e9789", fontSize: 12, marginBottom: 6, textTransform: "uppercase" }}>Mockup Type</label>
         <select
           style={{ ...inputStyle, cursor: "pointer" }}
           value={content.mockup_type}

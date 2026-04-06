@@ -1,9 +1,10 @@
 "use client";
 
 import type { StatsContent, StatItem } from "@/lib/types/cms";
+import RichTextField from "@/components/admin/RichTextField";
 
-const labelStyle: React.CSSProperties = { display: "block", color: "#9e9789", fontSize: 12, marginBottom: 6, textTransform: "uppercase" };
 const inputStyle: React.CSSProperties = { width: "100%", padding: "8px 12px", borderRadius: 6, border: "1px solid #2a2825", background: "#111110", color: "#f0ebe3", fontSize: 14, outline: "none" };
+const labelStyle: React.CSSProperties = { display: "block", color: "#9e9789", fontSize: 12, marginBottom: 6, textTransform: "uppercase" };
 const fieldStyle: React.CSSProperties = { marginBottom: 16 };
 const cardStyle: React.CSSProperties = { padding: 16, background: "#161514", borderRadius: 8, border: "1px solid #2a2825", marginBottom: 12 };
 
@@ -67,15 +68,8 @@ export default function StatsEditor({ content, onChange }: Props) {
             </div>
           </div>
 
-          <div style={fieldStyle}>
-            <label style={labelStyle}>Label</label>
-            <input style={inputStyle} value={item.label} onChange={(e) => updateItem(i, { label: e.target.value })} />
-          </div>
-
-          <div style={{ marginBottom: 0 }}>
-            <label style={labelStyle}>Note</label>
-            <input style={inputStyle} value={item.note} onChange={(e) => updateItem(i, { note: e.target.value })} />
-          </div>
+          <RichTextField label="Label" value={item.label} onChange={(html) => updateItem(i, { label: html })} />
+          <RichTextField label="Note" value={item.note} onChange={(html) => updateItem(i, { note: html })} />
         </div>
       ))}
     </div>
