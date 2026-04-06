@@ -38,6 +38,7 @@ import SideDots from "@/components/SideDots";
 import BackToTop from "@/components/BackToTop";
 import WhatsApp from "@/components/WhatsApp";
 import ScrollReveal from "@/components/ScrollReveal";
+import PreviewWrapper from "@/components/PreviewWrapper";
 
 // ── Data fetching helpers ───────────────────────────────
 
@@ -81,8 +82,12 @@ function getSectionContent<T>(sections: Section[], type: string): T | undefined 
   return section?.content as T | undefined;
 }
 
-function getSectionsByType<T>(sections: Section[], type: string): T[] {
-  return sections.filter((s) => s.type === type).map((s) => s.content as T);
+function getSectionId(sections: Section[], type: string): string | undefined {
+  return sections.find((s) => s.type === type)?.id;
+}
+
+function getSectionsByType<T>(sections: Section[], type: string): { content: T; id: string }[] {
+  return sections.filter((s) => s.type === type).map((s) => ({ content: s.content as T, id: s.id }));
 }
 
 function getSettingValue<T>(settings: SettingsRow[], key: string): T | undefined {
@@ -340,9 +345,67 @@ function buildStatementTitle(sc: StatementContent) {
   return <>{parts}</>;
 }
 
-export default async function Home() {
-  const { sections, settings } = await fetchPageData();
+// Default statement data (when CMS has no data)
+const defaultStatements: { title: React.ReactNode; body: string; proof: string; mockupType: "browser" | "cart" | "dashboard" | "phones" }[] = [
+  {
+    title: (
+      <>
+        Landing Pages
+        <br />
+        <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>That</em>
+        <br />
+        Convert.
+      </>
+    ),
+    body: "We design and build landing pages in Egypt that turn visitors into leads \u2014 every element tested, every interaction optimized for conversion.",
+    proof: "Up to 3x conversion lift across 15+ landing page projects",
+    mockupType: "browser",
+  },
+  {
+    title: (
+      <>
+        <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>E-Commerce</em>
+        <br />
+        That Sells.
+      </>
+    ),
+    body: "We build e-commerce stores on Shopify, WooCommerce, and custom platforms \u2014 from product catalogs to checkout flows, optimized for every click.",
+    proof: "40% sales increase for Harvest & Co within 3 months of launch",
+    mockupType: "cart",
+  },
+  {
+    title: (
+      <>
+        Custom Software
+        <br />
+        <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Development.</em>
+        <br />
+        Zero Compromise.
+      </>
+    ),
+    body: "Custom software built around your business logic using .NET, Node.js, and cloud platforms like AWS and Azure \u2014 no templates, no workarounds. Scalable, secure, and precisely shaped to how you operate.",
+    proof: "98% client satisfaction based on post-project surveys",
+    mockupType: "dashboard",
+  },
+  {
+    title: (
+      <>
+        <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Mobile App</em>
+        <br />
+        Development.
+      </>
+    ),
+    body: "We build native and cross-platform mobile apps with Flutter and React Native \u2014 smooth, fast, and designed to keep users coming back. iOS, Android, or both.",
+    proof: "Serving fintech, e-commerce, real estate, healthcare, education & more",
+    mockupType: "phones",
+  },
+];
 
+/**
+ * Render the page content from a given sections array.
+ * Extracted so it can be called directly or via PreviewWrapper's render prop.
+ */
+function renderPageContent(sections: Section[], settings: SettingsRow[]) {
   // Extract section content
   const heroContent = getSectionContent<HeroContent>(sections, "hero");
   const marqueeContent = getSectionContent<MarqueeContent>(sections, "marquee");
@@ -355,8 +418,20 @@ export default async function Home() {
   const ctaContent = getSectionContent<CtaContent>(sections, "cta");
   const contactContent = getSectionContent<ContactContent>(sections, "contact");
 
+  // Section IDs for data-section-id attributes
+  const heroId = getSectionId(sections, "hero");
+  const marqueeId = getSectionId(sections, "marquee");
+  const servicesId = getSectionId(sections, "services");
+  const processId = getSectionId(sections, "process");
+  const statsId = getSectionId(sections, "stats");
+  const trustId = getSectionId(sections, "trust");
+  const testimonialsId = getSectionId(sections, "testimonials");
+  const faqId = getSectionId(sections, "faq");
+  const ctaId = getSectionId(sections, "cta");
+  const contactId = getSectionId(sections, "contact");
+
   // Statement sections — ordered by sort_order (already sorted from query)
-  const statementContents = getSectionsByType<StatementContent>(sections, "statement");
+  const statementRecords = getSectionsByType<StatementContent>(sections, "statement");
 
   // Settings
   const navLinks = getSettingValue<NavLink[]>(settings, "navbar_links");
@@ -364,72 +439,17 @@ export default async function Home() {
   const contactInfo = getSettingValue<ContactInfo>(settings, "contact_info");
   const socialLinks = getSettingValue<SocialLink[]>(settings, "social_links");
 
-  // Default statement data (when CMS has no data)
-  const defaultStatements: { title: React.ReactNode; body: string; proof: string; mockupType: "browser" | "cart" | "dashboard" | "phones" }[] = [
-    {
-      title: (
-        <>
-          Landing Pages
-          <br />
-          <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>That</em>
-          <br />
-          Convert.
-        </>
-      ),
-      body: "We design and build landing pages in Egypt that turn visitors into leads \u2014 every element tested, every interaction optimized for conversion.",
-      proof: "Up to 3x conversion lift across 15+ landing page projects",
-      mockupType: "browser",
-    },
-    {
-      title: (
-        <>
-          <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>E-Commerce</em>
-          <br />
-          That Sells.
-        </>
-      ),
-      body: "We build e-commerce stores on Shopify, WooCommerce, and custom platforms \u2014 from product catalogs to checkout flows, optimized for every click.",
-      proof: "40% sales increase for Harvest & Co within 3 months of launch",
-      mockupType: "cart",
-    },
-    {
-      title: (
-        <>
-          Custom Software
-          <br />
-          <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Development.</em>
-          <br />
-          Zero Compromise.
-        </>
-      ),
-      body: "Custom software built around your business logic using .NET, Node.js, and cloud platforms like AWS and Azure \u2014 no templates, no workarounds. Scalable, secure, and precisely shaped to how you operate.",
-      proof: "98% client satisfaction based on post-project surveys",
-      mockupType: "dashboard",
-    },
-    {
-      title: (
-        <>
-          <em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Mobile App</em>
-          <br />
-          Development.
-        </>
-      ),
-      body: "We build native and cross-platform mobile apps with Flutter and React Native \u2014 smooth, fast, and designed to keep users coming back. iOS, Android, or both.",
-      proof: "Serving fintech, e-commerce, real estate, healthcare, education & more",
-      mockupType: "phones",
-    },
-  ];
-
   // Build statements from CMS or defaults
-  const statements = statementContents.length >= 4
-    ? statementContents.map((sc, i) => ({
-        title: buildStatementTitle(sc),
-        body: sc.body,
-        proof: sc.proof_point,
-        mockupType: sc.mockup_type,
+  const statements = statementRecords.length >= 4
+    ? statementRecords.map((rec, i) => ({
+        title: buildStatementTitle(rec.content),
+        body: rec.content.body,
+        proof: rec.content.proof_point,
+        mockupType: rec.content.mockup_type,
         dataSec: i + 1,
+        id: rec.id,
       }))
-    : defaultStatements.map((s, i) => ({ ...s, dataSec: i + 1 }));
+    : defaultStatements.map((s, i) => ({ ...s, dataSec: i + 1, id: undefined as string | undefined }));
 
   // CTA content
   const ctaHeadline = ctaContent?.headline || "Ready to build something that actually converts?";
@@ -447,10 +467,12 @@ export default async function Home() {
       <ScrollReveal />
       <Navbar navLinks={navLinks} ctaText={ctaContent?.button_text} />
       <main id="main-content">
-      <Hero content={heroContent} />
+      <div data-section-id={heroId}>
+        <Hero content={heroContent} />
+      </div>
 
       {statements.map((stmt, i) => (
-        <div key={i}>
+        <div key={i} data-section-id={stmt.id}>
           <Statement
             dataSec={stmt.dataSec}
             title={stmt.title}
@@ -465,6 +487,7 @@ export default async function Home() {
       {/* Mid-page CTA */}
       <div
         className="rv"
+        data-section-id={ctaId}
         style={{
           padding: "6rem 2rem",
           textAlign: "center",
@@ -505,14 +528,14 @@ export default async function Home() {
         </a>
       </div>
 
-      <Marquee content={marqueeContent} />
-      <Services content={servicesContent} />
-      <Process content={processContent} />
-      <Stats content={statsContent} />
-      <Trust content={trustContent} />
-      <Testimonials content={testimonialsContent} />
-      <FAQ content={faqContent} />
-      <Contact content={contactContent} />
+      <div data-section-id={marqueeId}><Marquee content={marqueeContent} /></div>
+      <div data-section-id={servicesId}><Services content={servicesContent} /></div>
+      <div data-section-id={processId}><Process content={processContent} /></div>
+      <div data-section-id={statsId}><Stats content={statsContent} /></div>
+      <div data-section-id={trustId}><Trust content={trustContent} /></div>
+      <div data-section-id={testimonialsId}><Testimonials content={testimonialsContent} /></div>
+      <div data-section-id={faqId}><FAQ content={faqContent} /></div>
+      <div data-section-id={contactId}><Contact content={contactContent} /></div>
       </main>
       <Footer
         footerSettings={footerSettings}
@@ -525,4 +548,24 @@ export default async function Home() {
       <WhatsApp />
     </>
   );
+}
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const { sections, settings } = await fetchPageData();
+  const { preview } = await searchParams;
+  const isPreview = preview === "true";
+
+  if (isPreview) {
+    return (
+      <PreviewWrapper sections={sections}>
+        {(liveSections) => renderPageContent(liveSections, settings)}
+      </PreviewWrapper>
+    );
+  }
+
+  return renderPageContent(sections, settings);
 }
