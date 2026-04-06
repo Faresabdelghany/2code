@@ -1,10 +1,10 @@
 "use client";
 
 import type { TrustContent, TrustClient } from "@/lib/types/cms";
+import RichTextField from "@/components/admin/RichTextField";
 
-const labelStyle: React.CSSProperties = { display: "block", color: "#9e9789", fontSize: 12, marginBottom: 6, textTransform: "uppercase" };
 const inputStyle: React.CSSProperties = { width: "100%", padding: "8px 12px", borderRadius: 6, border: "1px solid #2a2825", background: "#111110", color: "#f0ebe3", fontSize: 14, outline: "none" };
-const fieldStyle: React.CSSProperties = { marginBottom: 16 };
+const labelStyle: React.CSSProperties = { display: "block", color: "#9e9789", fontSize: 12, marginBottom: 6, textTransform: "uppercase" };
 const cardStyle: React.CSSProperties = { padding: 16, background: "#161514", borderRadius: 8, border: "1px solid #2a2825", marginBottom: 12 };
 
 interface Props {
@@ -32,10 +32,7 @@ export default function TrustEditor({ content, onChange }: Props) {
 
   return (
     <div>
-      <div style={fieldStyle}>
-        <label style={labelStyle}>Header</label>
-        <input style={inputStyle} value={content.header} onChange={(e) => updateHeader(e.target.value)} />
-      </div>
+      <RichTextField label="Header" value={content.header} onChange={updateHeader} />
 
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
         <span style={{ ...labelStyle, marginBottom: 0 }}>Clients ({content.clients.length})</span>
@@ -59,10 +56,7 @@ export default function TrustEditor({ content, onChange }: Props) {
             </button>
           </div>
 
-          <div style={fieldStyle}>
-            <label style={labelStyle}>Name</label>
-            <input style={inputStyle} value={client.name} onChange={(e) => updateItem(i, { name: e.target.value })} />
-          </div>
+          <RichTextField label="Name" value={client.name} onChange={(html) => updateItem(i, { name: html })} />
 
           <div style={{ marginBottom: 0 }}>
             <label style={labelStyle}>Logo URL</label>

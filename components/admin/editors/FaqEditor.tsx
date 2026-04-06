@@ -1,11 +1,9 @@
 "use client";
 
 import type { FaqContent, FaqItem } from "@/lib/types/cms";
+import RichTextField from "@/components/admin/RichTextField";
 
 const labelStyle: React.CSSProperties = { display: "block", color: "#9e9789", fontSize: 12, marginBottom: 6, textTransform: "uppercase" };
-const inputStyle: React.CSSProperties = { width: "100%", padding: "8px 12px", borderRadius: 6, border: "1px solid #2a2825", background: "#111110", color: "#f0ebe3", fontSize: 14, outline: "none" };
-const textareaStyle: React.CSSProperties = { ...inputStyle, minHeight: 80, resize: "vertical" as const };
-const fieldStyle: React.CSSProperties = { marginBottom: 16 };
 const cardStyle: React.CSSProperties = { padding: 16, background: "#161514", borderRadius: 8, border: "1px solid #2a2825", marginBottom: 12 };
 
 interface Props {
@@ -51,15 +49,8 @@ export default function FaqEditor({ content, onChange }: Props) {
             </button>
           </div>
 
-          <div style={fieldStyle}>
-            <label style={labelStyle}>Question</label>
-            <input style={inputStyle} value={item.question} onChange={(e) => updateItem(i, { question: e.target.value })} />
-          </div>
-
-          <div style={{ marginBottom: 0 }}>
-            <label style={labelStyle}>Answer</label>
-            <textarea style={textareaStyle} value={item.answer} onChange={(e) => updateItem(i, { answer: e.target.value })} />
-          </div>
+          <RichTextField label="Question" value={item.question} onChange={(html) => updateItem(i, { question: html })} />
+          <RichTextField label="Answer" value={item.answer} onChange={(html) => updateItem(i, { answer: html })} />
         </div>
       ))}
     </div>

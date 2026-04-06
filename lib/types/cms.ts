@@ -33,6 +33,7 @@ export interface Section<T = unknown> {
   sort_order: number;
   visible: boolean;
   updated_at: string;
+  previous_content: T | null;
 }
 
 // ── Section Content Schemas ───────────────────────────
@@ -191,6 +192,7 @@ export interface SettingsRow {
   key: string;
   value: unknown;
   updated_at: string;
+  previous_value: unknown | null;
 }
 
 // ── Content type map (section type → content interface) ──

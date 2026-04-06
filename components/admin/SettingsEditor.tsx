@@ -173,11 +173,12 @@ const savedMessageStyle: React.CSSProperties = {
 
 interface SettingsEditorProps {
   initial: Partial<SettingsMap>;
+  previousValues?: Partial<SettingsMap>;
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
-export default function SettingsEditor({ initial }: SettingsEditorProps) {
+export default function SettingsEditor({ initial, previousValues }: SettingsEditorProps) {
   const [navLinks, setNavLinks] = useState<NavLink[]>(
     initial.navbar_links ?? []
   );
@@ -192,6 +193,9 @@ export default function SettingsEditor({ initial }: SettingsEditorProps) {
   );
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [prevValues, setPrevValues] = useState<Partial<SettingsMap> | null>(
+    previousValues && Object.keys(previousValues).length > 0 ? previousValues : null
+  );
 
   const supabase = createClient();
 
@@ -236,19 +240,56 @@ export default function SettingsEditor({ initial }: SettingsEditorProps) {
     setSaved(false);
 
     try {
+      // Read current values before overwriting (for revert)
+      const { data: currentRows } = await supabase
+        .from("settings")
+        .select("key, value")
+        .in("key", ["navbar_links", "contact_info", "social_links", "footer"]);
+
+      const currentMap: Partial<SettingsMap> = {};
+      for (const row of currentRows ?? []) {
+        if (row.key === "navbar_links") currentMap.navbar_links = row.value as SettingsMap["navbar_links"];
+        else if (row.key === "contact_info") currentMap.contact_info = row.value as SettingsMap["contact_info"];
+        else if (row.key === "social_links") currentMap.social_links = row.value as SettingsMap["social_links"];
+        else if (row.key === "footer") currentMap.footer = row.value as SettingsMap["footer"];
+      }
+
       await Promise.all([
-        supabase.from("settings").upsert({ key: "navbar_links", value: navLinks }),
-        supabase.from("settings").upsert({ key: "contact_info", value: contact }),
-        supabase.from("settings").upsert({ key: "social_links", value: socialLinks }),
-        supabase.from("settings").upsert({ key: "footer", value: footer }),
+        supabase.from("settings").upsert({ key: "navbar_links", value: navLinks, previous_value: currentMap.navbar_links ?? null }),
+        supabase.from("settings").upsert({ key: "contact_info", value: contact, previous_value: currentMap.contact_info ?? null }),
+        supabase.from("settings").upsert({ key: "social_links", value: socialLinks, previous_value: currentMap.social_links ?? null }),
+        supabase.from("settings").upsert({ key: "footer", value: footer, previous_value: currentMap.footer ?? null }),
       ]);
 
+      setPrevValues(Object.keys(currentMap).length > 0 ? currentMap : null);
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
     } catch (err) {
       console.error("Settings save failed:", err);
     } finally {
       setSaving(false);
+    }
+  }
+
+  async function handleRevertAll() {
+    if (!prevValues) return;
+    if (!window.confirm("Are you sure? This will restore all settings to the last saved version.")) return;
+
+    try {
+      await Promise.all([
+        supabase.from("settings").upsert({ key: "navbar_links", value: prevValues.navbar_links ?? navLinks, previous_value: null }),
+        supabase.from("settings").upsert({ key: "contact_info", value: prevValues.contact_info ?? contact, previous_value: null }),
+        supabase.from("settings").upsert({ key: "social_links", value: prevValues.social_links ?? socialLinks, previous_value: null }),
+        supabase.from("settings").upsert({ key: "footer", value: prevValues.footer ?? footer, previous_value: null }),
+      ]);
+
+      if (prevValues.navbar_links) setNavLinks(prevValues.navbar_links);
+      if (prevValues.contact_info) setContact(prevValues.contact_info);
+      if (prevValues.social_links) setSocialLinks(prevValues.social_links);
+      if (prevValues.footer) setFooter(prevValues.footer);
+      setPrevValues(null);
+    } catch (err) {
+      console.error("Settings revert failed:", err);
     }
   }
 
@@ -397,6 +438,26 @@ export default function SettingsEditor({ initial }: SettingsEditorProps) {
         <button style={saveButtonStyle(saving)} onClick={handleSave} disabled={saving}>
           {saving ? "Saving…" : "Save All Settings"}
         </button>
+
+        {prevValues && (
+          <button
+            onClick={handleRevertAll}
+            style={{
+              padding: "11px 28px",
+              backgroundColor: "transparent",
+              color: "#c4a96a",
+              border: "1px solid #c4a96a",
+              borderRadius: 6,
+              fontSize: "0.9375rem",
+              fontWeight: 500,
+              fontFamily: "var(--font-sans)",
+              cursor: "pointer",
+            }}
+          >
+            Revert All Settings
+          </button>
+        )}
+
         {saved && <span style={savedMessageStyle}>Saved!</span>}
       </div>
     </div>
