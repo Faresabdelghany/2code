@@ -62,9 +62,8 @@ export default function Statement({ title, body, proof, mockupType, dataSec }: S
             maxWidth: 480,
             lineHeight: 1.8,
           }}
-        >
-          {body}
-        </p>
+          dangerouslySetInnerHTML={{ __html: body }}
+        />
         {proof && (
           <p
             className="rv rv-d3"
@@ -76,9 +75,8 @@ export default function Statement({ title, body, proof, mockupType, dataSec }: S
               marginTop: "1.5rem",
               fontWeight: 500,
             }}
-          >
-            {proof}
-          </p>
+            dangerouslySetInnerHTML={{ __html: proof }}
+          />
         )}
       </div>
 
