@@ -21,6 +21,7 @@ const sidebarStyle: React.CSSProperties = {
   flexDirection: "column",
   zIndex: 50,
   borderRight: "1px solid rgba(255,255,255,0.06)",
+  transition: "transform 0.25s ease",
 };
 
 const brandingStyle: React.CSSProperties = {
@@ -73,7 +74,23 @@ const signOutButtonStyle: React.CSSProperties = {
   textAlign: "left",
 };
 
-export default function Sidebar() {
+const backdropStyle: React.CSSProperties = {
+  position: "fixed",
+  inset: 0,
+  backgroundColor: "rgba(0,0,0,0.5)",
+  zIndex: 49,
+};
+
+// ── Props ───────────────────────────────────────────────────
+
+interface SidebarProps {
+  mobileOpen?: boolean;
+  onClose?: () => void;
+}
+
+// ── Component ───────────────────────────────────────────────
+
+export default function Sidebar({ mobileOpen = false, onClose }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -83,40 +100,75 @@ export default function Sidebar() {
     router.push("/admin");
   }
 
+  function handleNavClick(href: string) {
+    if (onClose) onClose();
+    router.push(href);
+  }
+
   return (
-    <nav style={sidebarStyle} aria-label="Admin navigation">
-      <div style={brandingStyle}>FORMA CMS</div>
+    <>
+      <style>{`
+        @media (max-width: 768px) {
+          .admin-sidebar {
+            transform: ${mobileOpen ? "translateX(0)" : "translateX(-100%)"} !important;
+          }
+        }
+      `}</style>
 
-      <div style={navStyle}>
-        {NAV_ITEMS.map((item) => {
-          const active = pathname === item.href || pathname.startsWith(item.href + "/");
-          return (
-            <a
-              key={item.href}
-              href={item.href}
-              style={navItemStyle(active)}
-              aria-current={active ? "page" : undefined}
-            >
-              {item.label}
-            </a>
-          );
-        })}
-      </div>
+      {/* Mobile backdrop */}
+      {mobileOpen && (
+        <div
+          style={backdropStyle}
+          className="admin-sidebar-backdrop"
+          onClick={onClose}
+          aria-hidden="true"
+        />
+      )}
 
-      <button
-        onClick={handleSignOut}
-        style={signOutButtonStyle}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.color = "#f0ebe3";
-          (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.2)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.color = "#9e9789";
-          (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.08)";
-        }}
-      >
-        Sign Out
-      </button>
-    </nav>
+      <nav style={sidebarStyle} className="admin-sidebar" aria-label="Admin navigation">
+        <div style={brandingStyle}>FORMA CMS</div>
+
+        <div style={navStyle}>
+          {NAV_ITEMS.map((item) => {
+            const active = pathname === item.href || pathname.startsWith(item.href + "/");
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                }}
+                style={navItemStyle(active)}
+                aria-current={active ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </div>
+
+        <button
+          onClick={handleSignOut}
+          style={signOutButtonStyle}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.color = "#f0ebe3";
+            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.2)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.color = "#9e9789";
+            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.08)";
+          }}
+        >
+          Sign Out
+        </button>
+      </nav>
+
+      <style>{`
+        @media (min-width: 769px) {
+          .admin-sidebar-backdrop { display: none !important; }
+        }
+      `}</style>
+    </>
   );
 }
