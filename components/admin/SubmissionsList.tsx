@@ -325,7 +325,7 @@ export default function SubmissionsList({ initialSubmissions }: SubmissionsListP
   }
 
   return (
-    <div style={wrapperStyle}>
+    <div style={wrapperStyle} className="admin-content">
       {/* Header */}
       <div style={headerRowStyle}>
         <h1 style={headingStyle}>{submissions.length} submission{submissions.length !== 1 ? "s" : ""}</h1>

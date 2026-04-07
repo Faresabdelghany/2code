@@ -42,7 +42,7 @@ export default async function SettingsPage() {
   }
 
   return (
-    <div style={pageStyle}>
+    <div style={pageStyle} className="admin-content">
       <SettingsEditor initial={settings} previousValues={previousValues} />
     </div>
   );

@@ -390,7 +390,7 @@ export default function MediaLibrary({ initialMedia, pickerMode, onPick }: Media
   }
 
   return (
-    <div style={wrapperStyle}>
+    <div style={wrapperStyle} className="admin-content">
       {/* Header */}
       <div style={headerRowStyle}>
         <h1 style={headingStyle}>{pickerMode ? "Pick an Image" : "Media Library"}</h1>

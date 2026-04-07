@@ -85,7 +85,7 @@ export default async function PagesListPage() {
   const rows = pages ?? [];
 
   return (
-    <div style={pageStyle}>
+    <div style={pageStyle} className="admin-content">
       <div style={headerStyle}>
         <h1 style={headingStyle}>Pages</h1>
       </div>

@@ -96,7 +96,7 @@ export default async function PageDetailPage({
   const rows = sections ?? [];
 
   return (
-    <div style={pageStyle}>
+    <div style={pageStyle} className="admin-content">
       {/* Breadcrumb */}
       <nav style={breadcrumbStyle} aria-label="Breadcrumb">
         <Link href="/admin/pages" style={breadcrumbLinkStyle}>

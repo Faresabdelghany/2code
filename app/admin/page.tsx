@@ -171,7 +171,7 @@ export default async function AdminPage() {
   const recentSubmissions = recentRes.data ?? [];
 
   return (
-    <div style={pageStyle}>
+    <div style={pageStyle} className="admin-content">
       <h1 style={headingStyle}>Dashboard</h1>
 
       {/* Stat cards */}
