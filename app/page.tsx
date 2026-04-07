@@ -38,7 +38,7 @@ import SideDots from "@/components/SideDots";
 import BackToTop from "@/components/BackToTop";
 import WhatsApp from "@/components/WhatsApp";
 import ScrollReveal from "@/components/ScrollReveal";
-import PreviewWrapper from "@/components/PreviewWrapper";
+import PreviewPage from "@/components/PreviewPage";
 
 // ── Data fetching helpers ───────────────────────────────
 
@@ -560,11 +560,7 @@ export default async function Home({
   const isPreview = preview === "true";
 
   if (isPreview) {
-    return (
-      <PreviewWrapper sections={sections}>
-        {(liveSections) => renderPageContent(liveSections, settings)}
-      </PreviewWrapper>
-    );
+    return <PreviewPage initialSections={sections} settings={settings} />;
   }
 
   return renderPageContent(sections, settings);
