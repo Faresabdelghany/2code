@@ -160,9 +160,8 @@ export default function Hero({ content }: HeroProps) {
             color: "var(--color-tn)",
             marginBottom: "2rem",
           }}
-        >
-          {content?.eyebrow || "50+ Projects Delivered \u00a0\u00b7\u00a0 Up to 3x Conversion Lift"}
-        </motion.p>
+          dangerouslySetInnerHTML={{ __html: content?.eyebrow || "50+ Projects Delivered &nbsp;&middot;&nbsp; Up to 3x Conversion Lift" }}
+        />
 
         {/* Headline */}
         <h1
@@ -223,9 +222,8 @@ export default function Hero({ content }: HeroProps) {
             maxWidth: "46ch",
             marginBottom: "3rem",
           }}
-        >
-          {content?.subheadline || "A web development agency in Egypt building landing pages, e-commerce stores, custom software & mobile apps \u2014 built to perform, not just impress."}
-        </motion.p>
+          dangerouslySetInnerHTML={{ __html: content?.subheadline || "A web development agency in Egypt building landing pages, e-commerce stores, custom software &amp; mobile apps &mdash; built to perform, not just impress." }}
+        />
 
         {/* CTAs */}
         <motion.div
@@ -258,7 +256,7 @@ export default function Hero({ content }: HeroProps) {
             onMouseEnter={(e) => (e.currentTarget.style.background = "var(--color-tn)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "var(--color-cr)")}
           >
-            {content?.cta_primary?.text || "Get a Free Consultation"}
+            <span dangerouslySetInnerHTML={{ __html: content?.cta_primary?.text || "Get a Free Consultation" }} />
             <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -284,7 +282,7 @@ export default function Hero({ content }: HeroProps) {
             onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(240,235,227,.7)")}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(240,235,227,.25)")}
           >
-            {content?.cta_secondary?.text || "See What We Build"}
+            <span dangerouslySetInnerHTML={{ __html: content?.cta_secondary?.text || "See What We Build" }} />
           </a>
         </motion.div>
       </div>

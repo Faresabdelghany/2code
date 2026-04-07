@@ -502,9 +502,8 @@ function renderPageContent(sections: Section[], settings: SettingsRow[]) {
             fontWeight: 300,
             marginBottom: "2rem",
           }}
-        >
-          {ctaHeadline}
-        </p>
+          dangerouslySetInnerHTML={{ __html: ctaHeadline }}
+        />
         <a
           href={ctaButtonUrl}
           style={{
@@ -521,7 +520,7 @@ function renderPageContent(sections: Section[], settings: SettingsRow[]) {
             transition: "background 0.4s ease",
           }}
         >
-          {ctaButtonText}
+          <span dangerouslySetInnerHTML={{ __html: ctaButtonText }} />
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
