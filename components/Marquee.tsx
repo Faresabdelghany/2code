@@ -52,9 +52,8 @@ export default function Marquee({ content }: MarqueeProps) {
               opacity: 0.35,
               fontStyle: item.italic ? "italic" : "normal",
             }}
-          >
-            {item.text}
-          </span>
+            dangerouslySetInnerHTML={{ __html: item.text }}
+          />
         ))}
       </div>
     </div>

@@ -75,12 +75,11 @@ export default function Process({ content }: ProcessProps) {
                 fontSize: "1.25rem",
                 marginBottom: "1rem",
               }}
-            >
-              {step.title}
-            </h3>
-            <p style={{ fontSize: "0.85rem", color: "var(--color-cd)", lineHeight: 1.7, fontWeight: 300 }}>
-              {step.desc}
-            </p>
+              dangerouslySetInnerHTML={{ __html: step.title }}
+            />
+            <p style={{ fontSize: "0.85rem", color: "var(--color-cd)", lineHeight: 1.7, fontWeight: 300 }}
+              dangerouslySetInnerHTML={{ __html: step.desc }}
+            />
           </div>
         ))}
       </div>

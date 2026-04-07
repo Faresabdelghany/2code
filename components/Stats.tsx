@@ -87,9 +87,8 @@ function StatItem({ stat, delay }: { stat: Stat; delay: number }) {
           textTransform: "uppercase",
           color: "var(--color-cd)",
         }}
-      >
-        {stat.label}
-      </div>
+        dangerouslySetInnerHTML={{ __html: stat.label }}
+      />
       {stat.note && (
         <div
           style={{
@@ -99,9 +98,8 @@ function StatItem({ stat, delay }: { stat: Stat; delay: number }) {
             opacity: 0.45,
             marginTop: "0.35rem",
           }}
-        >
-          {stat.note}
-        </div>
+          dangerouslySetInnerHTML={{ __html: stat.note }}
+        />
       )}
     </div>
   );

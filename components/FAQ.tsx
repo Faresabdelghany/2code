@@ -123,7 +123,7 @@ export default function FAQ({ content }: FaqProps) {
                 transition: "color 0.3s ease",
               }}
             >
-              {faq.q}
+              <span dangerouslySetInnerHTML={{ __html: faq.q }} />
               {/* Plus/minus icon */}
               <span
                 style={{
@@ -181,9 +181,8 @@ export default function FAQ({ content }: FaqProps) {
                       lineHeight: 1.8,
                       fontWeight: 300,
                     }}
-                  >
-                    {faq.a}
-                  </p>
+                    dangerouslySetInnerHTML={{ __html: faq.a }}
+                  />
                 </motion.div>
               )}
             </AnimatePresence>

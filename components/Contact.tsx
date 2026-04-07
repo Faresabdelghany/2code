@@ -131,9 +131,8 @@ export default function Contact({ content }: ContactProps) {
               lineHeight: 1.05,
               marginBottom: "1.5rem",
             }}
-          >
-            {content?.heading || <>Got a Project?<br /><em style={{ fontStyle: "italic", color: "var(--color-tn)" }}>Let&apos;s Talk.</em></>}
-          </h2>
+            dangerouslySetInnerHTML={{ __html: content?.heading || "Got a Project?<br /><em style=\"font-style: italic; color: var(--color-tn)\">Let&apos;s Talk.</em>" }}
+          />
           <p
             className="rv rv-d2"
             style={{
@@ -144,9 +143,8 @@ export default function Contact({ content }: ContactProps) {
               lineHeight: 1.7,
               maxWidth: 400,
             }}
-          >
-            {content?.subtext || "Tell us about your project and we'll get back to you within 24 hours."}
-          </p>
+            dangerouslySetInnerHTML={{ __html: content?.subtext || "Tell us about your project and we'll get back to you within 24 hours." }}
+          />
         </div>
 
         {/* Form / Success */}
@@ -325,12 +323,11 @@ export default function Contact({ content }: ContactProps) {
                   fontSize: "1.5rem",
                   marginBottom: "0.8rem",
                 }}
-              >
-                {content?.success_title || "Message Sent"}
-              </h3>
-              <p style={{ fontSize: "0.88rem", color: "var(--color-cd)", lineHeight: 1.6 }}>
-                {content?.success_message || "Thank you. We'll get back to you within 24 hours."}
-              </p>
+                dangerouslySetInnerHTML={{ __html: content?.success_title || "Message Sent" }}
+              />
+              <p style={{ fontSize: "0.88rem", color: "var(--color-cd)", lineHeight: 1.6 }}
+                dangerouslySetInnerHTML={{ __html: content?.success_message || "Thank you. We'll get back to you within 24 hours." }}
+              />
             </motion.div>
           )}
         </AnimatePresence>

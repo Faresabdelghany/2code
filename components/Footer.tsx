@@ -93,7 +93,7 @@ export default function Footer({ footerSettings, contactInfo, socialLinks }: Foo
               onFocus={(e) => ((e.target as HTMLElement).style.color = "var(--color-tn)")}
               onBlur={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
             >
-              {item.text}
+              <span dangerouslySetInnerHTML={{ __html: item.text }} />
             </a>
           ))}
         </div>
@@ -113,7 +113,7 @@ export default function Footer({ footerSettings, contactInfo, socialLinks }: Foo
               onFocus={(e) => ((e.target as HTMLElement).style.color = "var(--color-tn)")}
               onBlur={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
             >
-              {item.text}
+              <span dangerouslySetInnerHTML={{ __html: item.text }} />
             </a>
           ))}
         </div>
@@ -133,7 +133,7 @@ export default function Footer({ footerSettings, contactInfo, socialLinks }: Foo
               onFocus={(e) => ((e.target as HTMLElement).style.color = "var(--color-tn)")}
               onBlur={(e) => ((e.target as HTMLElement).style.color = "var(--color-cr)")}
             >
-              {item.label}
+              <span dangerouslySetInnerHTML={{ __html: item.label }} />
             </a>
           ))}
         </div>
