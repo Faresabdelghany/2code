@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import SectionList from "@/components/admin/SectionList";
+import SeoEditor from "@/components/admin/SeoEditor";
 import type { Page, Section } from "@/lib/types/cms";
 
 // ── Styles ──────────────────────────────────────────────────────────────────
@@ -108,6 +109,14 @@ export default async function PageDetailPage({
       {/* Page info */}
       <h1 style={headingStyle}>{page.title}</h1>
       <div style={slugStyle}>/{page.slug}</div>
+
+      {/* SEO editor */}
+      <SeoEditor
+        pageId={page.id}
+        initialTitle={page.meta_title ?? ""}
+        initialDescription={page.meta_description ?? ""}
+        initialOgImage={page.og_image ?? ""}
+      />
 
       {/* Sections */}
       <div style={sectionHeaderStyle}>Sections</div>
