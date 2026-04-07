@@ -168,9 +168,9 @@ export default function PreviewPage({ initialSections, settings }: PreviewPagePr
       <ScrollReveal />
       <Navbar navLinks={navLinks} ctaText={ctaContent?.button_text} />
       <main id="main-content">
-        <div data-section-id={heroId}>
+        {heroId && <div data-section-id={heroId}>
           <Hero content={heroContent} />
-        </div>
+        </div>}
 
         {statements.map((stmt, i) => (
           <div key={i} data-section-id={stmt.id}>
@@ -227,14 +227,14 @@ export default function PreviewPage({ initialSections, settings }: PreviewPagePr
           </a>
         </div>
 
-        <div data-section-id={marqueeId}><Marquee content={marqueeContent} /></div>
-        <div data-section-id={servicesId}><Services content={servicesContent} /></div>
-        <div data-section-id={processId}><Process content={processContent} /></div>
-        <div data-section-id={statsId}><Stats content={statsContent} /></div>
-        <div data-section-id={trustId}><Trust content={trustContent} /></div>
-        <div data-section-id={testimonialsId}><Testimonials content={testimonialsContent} /></div>
-        <div data-section-id={faqId}><FAQ content={faqContent} /></div>
-        <div data-section-id={contactId}><Contact content={contactContent} /></div>
+        {marqueeId && <div data-section-id={marqueeId}><Marquee content={marqueeContent} /></div>}
+        {servicesId && <div data-section-id={servicesId}><Services content={servicesContent} /></div>}
+        {processId && <div data-section-id={processId}><Process content={processContent} /></div>}
+        {statsId && <div data-section-id={statsId}><Stats content={statsContent} /></div>}
+        {trustId && <div data-section-id={trustId}><Trust content={trustContent} /></div>}
+        {testimonialsId && <div data-section-id={testimonialsId}><Testimonials content={testimonialsContent} /></div>}
+        {faqId && <div data-section-id={faqId}><FAQ content={faqContent} /></div>}
+        {contactId && <div data-section-id={contactId}><Contact content={contactContent} /></div>}
       </main>
       <Footer footerSettings={footerSettings} contactInfo={contactInfo} socialLinks={socialLinks} />
       <SideDots />
