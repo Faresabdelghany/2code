@@ -55,7 +55,7 @@ export const fetchPageBySlug = cache(async function fetchPageBySlug(slug: string
       supabase.from("settings").select("*"),
     ]);
 
-    const page = pageRes.data;
+    const page = pageRes.data as Page | null;
 
     // Fetch sections for this page (filtered by page_id)
     let sections: Section[] = [];
@@ -82,20 +82,20 @@ export const fetchPageBySlug = cache(async function fetchPageBySlug(slug: string
 
 // ── Section content helpers ─────────────────────────────
 
-export function getSectionContent<T>(sections: Section[], type: string): T | undefined {
+function getSectionContent<T>(sections: Section[], type: string): T | undefined {
   const section = sections.find((s) => s.type === type);
   return section?.content as T | undefined;
 }
 
-export function getSectionId(sections: Section[], type: string): string | undefined {
+function getSectionId(sections: Section[], type: string): string | undefined {
   return sections.find((s) => s.type === type)?.id;
 }
 
-export function getSectionsByType<T>(sections: Section[], type: string): { content: T; id: string }[] {
+function getSectionsByType<T>(sections: Section[], type: string): { content: T; id: string }[] {
   return sections.filter((s) => s.type === type).map((s) => ({ content: s.content as T, id: s.id }));
 }
 
-export function getSettingValue<T>(settings: SettingsRow[], key: string): T | undefined {
+function getSettingValue<T>(settings: SettingsRow[], key: string): T | undefined {
   const row = settings.find((s) => s.key === key);
   return row?.value as T | undefined;
 }
@@ -140,7 +140,7 @@ export function generatePageMetadata(page: Page | null): Metadata {
 
 // ── UI helpers ──────────────────────────────────────────
 
-export function Divider() {
+function Divider() {
   return (
     <div style={{ padding: "0 6rem" }}>
       <div
@@ -154,7 +154,7 @@ export function Divider() {
 }
 
 // Build statement title JSX from StatementContent
-export function buildStatementTitle(sc: StatementContent) {
+function buildStatementTitle(sc: StatementContent) {
   // Render title lines with accent styling
   const parts: React.ReactNode[] = [];
   if (sc.title_line1) {
@@ -176,7 +176,7 @@ export function buildStatementTitle(sc: StatementContent) {
 }
 
 // Default statement data (when CMS has no data)
-export const defaultStatements: { title: React.ReactNode; body: string; proof: string; mockupType: "browser" | "cart" | "dashboard" | "phones" }[] = [
+const defaultStatements: { title: React.ReactNode; body: string; proof: string; mockupType: "browser" | "cart" | "dashboard" | "phones" }[] = [
   {
     title: (
       <>
