@@ -197,6 +197,19 @@ const deleteButtonStyle: React.CSSProperties = {
   cursor: "pointer",
 };
 
+const exportButtonStyle: React.CSSProperties = {
+  padding: "7px 18px",
+  backgroundColor: "rgba(196,169,106,0.1)",
+  border: "1px solid rgba(196,169,106,0.3)",
+  borderRadius: 6,
+  color: "#c4a96a",
+  fontSize: "0.8125rem",
+  fontFamily: "var(--font-sans)",
+  fontWeight: 500,
+  cursor: "pointer",
+  marginLeft: "auto",
+};
+
 const emptyStyle: React.CSSProperties = {
   padding: "64px 32px",
   textAlign: "center",
@@ -292,6 +305,25 @@ export default function SubmissionsList({ initialSubmissions }: SubmissionsListP
     await supabase.from("submissions").delete().eq("id", id);
   }
 
+  function exportCsv() {
+    const header = "Name,Email,Message,Status,Date";
+    const rows = submissions.map((s) => {
+      const esc = (v: string) => `"${v.replace(/"/g, '""')}"`;
+      const status = s.read ? "Read" : "Unread";
+      const date = new Date(s.created_at).toISOString();
+      return [esc(s.name), esc(s.email), esc(s.message), status, date].join(",");
+    });
+    const csv = [header, ...rows].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    const today = new Date().toISOString().slice(0, 10);
+    a.download = `submissions-${today}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   return (
     <div style={wrapperStyle}>
       {/* Header */}
@@ -299,6 +331,11 @@ export default function SubmissionsList({ initialSubmissions }: SubmissionsListP
         <h1 style={headingStyle}>{submissions.length} submission{submissions.length !== 1 ? "s" : ""}</h1>
         {unreadCount > 0 && (
           <span style={badgeStyle}>{unreadCount} new</span>
+        )}
+        {submissions.length > 0 && (
+          <button style={exportButtonStyle} onClick={exportCsv}>
+            Export CSV
+          </button>
         )}
       </div>
 
