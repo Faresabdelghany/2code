@@ -102,7 +102,7 @@ function getSettingValue<T>(settings: SettingsRow[], key: string): T | undefined
 
 // ── Metadata generation ─────────────────────────────────
 
-export function generatePageMetadata(page: Page | null): Metadata {
+export function generatePageMetadata(page: Page | null, slug = "home"): Metadata {
   const title =
     page?.meta_title ||
     "2Code \u2014 Web Development Agency in Egypt | Landing Pages, E-Commerce & Custom Software";
@@ -110,17 +110,20 @@ export function generatePageMetadata(page: Page | null): Metadata {
     page?.meta_description ||
     "2Code is a web development agency in Egypt building landing pages, e-commerce stores, custom software & mobile apps that convert. 50+ projects delivered across the Middle East. Get a free consultation today.";
 
+  const baseUrl = "https://2code.agency";
+  const canonicalUrl = slug === "home" ? baseUrl : `${baseUrl}/${slug}`;
+
   return {
     title,
     description,
-    alternates: { canonical: "https://2code.agency" },
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       title: page?.meta_title || "2Code \u2014 Web Development Agency in Egypt | Digital Products That Convert",
       description:
         page?.meta_description ||
         "A web development agency in Egypt building landing pages, e-commerce stores, custom software & mobile apps that convert. 50+ projects delivered across the Middle East.",
       type: "website",
-      url: "https://2code.agency",
+      url: canonicalUrl,
       siteName: "2Code",
       ...(page?.og_image ? { images: [{ url: page.og_image }] } : {}),
     },

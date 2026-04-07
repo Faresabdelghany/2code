@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { slug } = await params;
   if (slug === "home") return {};
   const { page } = await fetchPageBySlug(slug);
-  return generatePageMetadata(page);
+  return generatePageMetadata(page, slug);
 }
 
 export default async function SlugPage({
